@@ -1,7 +1,6 @@
 import { APISystem } from "./apiSystem";
 import { Express } from 'express';
 import { Helper } from "./helper";
-import { DBUser } from "../entities/user";
 
 export class Core {
     app: Express;
@@ -36,7 +35,6 @@ export class Core {
      * Will be executed after initializion of all APIs
      */
     postInit() {
-        console.log('Testing permissions of the Admin-User');
-        DBUser.findOne({where: {username: 'admin'}});
+
     }
 }

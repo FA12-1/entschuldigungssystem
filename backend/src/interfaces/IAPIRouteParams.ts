@@ -6,5 +6,5 @@ export interface IAPIRoute {
     creatingAPI: APIBase;
     endPointName: string;
     onCall: (req: Request, res: Response) => void;
-    neededPermission?: TokenPermission;
+    //neededPermission?: TokenPermission;
 }

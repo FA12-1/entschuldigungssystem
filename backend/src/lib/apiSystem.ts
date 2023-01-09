@@ -1,7 +1,5 @@
 import { Request, Response } from "express";
 import { NewTest } from "../api/newTestAPI";
-import { DBToken } from "../entities/token";
-import { DBUser } from "../entities/user";
 import { IAPIRequest } from "../interfaces/IAPIRequest";
 import { IAPIResponse } from "../interfaces/IAPIResponse";
 import { IAPIRoute } from "../interfaces/IAPIRouteParams";
@@ -59,6 +57,8 @@ export class APISystem {
             },
             data: {}
         } 
+        return true;
+        /*
         if(apiRouteParams.neededPermission) {
             console.log('[CHECK_TOKEN_PERMISSION] ' + apiRouteParams.creatingAPI.uriName + '/v' + apiRouteParams.creatingAPI.version + '/' + apiRouteParams.endPointName + ' needs ' + apiRouteParams.neededPermission + ' Permission');
             const request: IAPIRequest = JSON.parse(JSON.stringify(req.body));
@@ -89,6 +89,7 @@ export class APISystem {
         } else {
             return true
         }
+        */
     }
 
     /**

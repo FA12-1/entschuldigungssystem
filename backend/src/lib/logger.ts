@@ -24,7 +24,7 @@ export class Logger {
     }
 
     static logIntoFile(text: string) {
-       fs.appendFileSync(path.resolve('.') + '/log/baseapi.log', text + '\n'); 
+       fs.appendFileSync(path.resolve('.') + '/log/' + CONFIG.SYSTEM_NAME + '.log', text + '\n'); 
     }
 
     /**

@@ -1,5 +1,5 @@
 import { Core } from "./core";
-import { languages } from "../language/importer";
+//import { languages } from "../language/importer";
 
 export class StringSystem {
     core: Core;
