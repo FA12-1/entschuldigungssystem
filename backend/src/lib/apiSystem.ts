@@ -1,4 +1,5 @@
 import { Request, Response } from "express";
+import { AbsenceAPI } from "../api/absences";
 import { NewTest } from "../api/newTestAPI";
 import { IAPIRequest } from "../interfaces/IAPIRequest";
 import { IAPIResponse } from "../interfaces/IAPIResponse";
@@ -11,7 +12,8 @@ export class APISystem {
     core: Core;
 
     // main APIs
-    newTestAPI: NewTest;
+    //newTestAPI: NewTest;
+    absenceAPI: AbsenceAPI;
 
     // custom APIs go here
 
@@ -19,7 +21,8 @@ export class APISystem {
         this.core = core;
 
         // initialize core APIs
-        this.newTestAPI = new NewTest(this);
+        //this.newTestAPI = new NewTest(this);
+        this.absenceAPI = new AbsenceAPI(this);
         
     }
 
@@ -97,8 +100,8 @@ export class APISystem {
      * @param apiRouteParams Parameter
      */
     createRoute(apiRouteParams: IAPIRoute) {
-        const fullRoute = this.generateURI(apiRouteParams.creatingAPI.version, apiRouteParams.creatingAPI.uriName, apiRouteParams.endPointName)
-        console.log('creating route of type' + apiRouteParams.method + ' at ' +  fullRoute);
+        const fullRoute = this.generateURI(apiRouteParams.creatingAPI.metaData.buildNumber, apiRouteParams.creatingAPI.metaData.apiName, apiRouteParams.endPointName)
+        console.log('creating route [' + apiRouteParams.method + '] ' +  fullRoute);
         switch(apiRouteParams.method) {
             case "GET": {
                 this.core.app.get(fullRoute, async (req: Request, res: Response) => {
@@ -133,7 +136,7 @@ export class APISystem {
                 break;
             }
             default: {
-                console.log('APISystem: CreateRoute called from: ' + apiRouteParams.creatingAPI.uriName + ' for Endpoint ' + apiRouteParams.endPointName + ' failed. Specified Method not registered.');
+                console.log('APISystem: CreateRoute called from: ' + apiRouteParams.creatingAPI.metaData.apiName + ' for Endpoint ' + apiRouteParams.endPointName + ' failed. Specified Method not registered.');
                 break;
             }
         }

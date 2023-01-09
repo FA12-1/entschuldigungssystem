@@ -1,4 +1,4 @@
-import { APIBase } from "../lib/apiBase";
+import { APIBase } from "../lib/apiBaseNew";
 import { Request, Response } from "express";
 
 export interface IAPIRoute {
