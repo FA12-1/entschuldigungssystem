@@ -1,5 +1,10 @@
 import { DataSource } from "typeorm";
 import { CONFIG } from "./config";
+import { DBAbsence } from "./entities/absence";
+import { DBAdmin } from "./entities/admin";
+import { DBClass } from "./entities/class";
+import { DBProffessor } from "./entities/professor";
+import { DBStudent } from "./entities/student";
 
 export const AppDataSource = new DataSource({
     type: "mysql",
@@ -10,7 +15,7 @@ export const AppDataSource = new DataSource({
     database: CONFIG.DATABASE_NAME, 
     synchronize: true, // wenn das true ist, wird das DB Schema neu eingespielt.
     logging: false,
-    entities: [],
+    entities: [DBAbsence, DBAdmin, DBClass, DBProffessor, DBStudent],
     subscribers: [],
     migrations: [],
 })
