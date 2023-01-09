@@ -1,6 +1,7 @@
 export interface IAPIRequest {
     header: {
-        token: string
+        appToken: string;
+        userToken: string;
     }
     data: any
 }

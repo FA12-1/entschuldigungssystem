@@ -6,6 +6,7 @@ export class Core {
     app: Express;
     basePath: string;
     BCRYPT_ROUNDS = 12;
+    APP_TOKEN = '481923pkfui932iktjhui891okjnji987ujgmoa'
     
     helper: Helper;
     apiSystem: APISystem;

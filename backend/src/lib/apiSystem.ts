@@ -1,6 +1,5 @@
 import { Request, Response } from "express";
 import { AbsenceAPI } from "../api/absences";
-import { NewTest } from "../api/newTestAPI";
 import { IAPIRequest } from "../interfaces/IAPIRequest";
 import { IAPIResponse } from "../interfaces/IAPIResponse";
 import { IAPIRoute } from "../interfaces/IAPIRouteParams";
