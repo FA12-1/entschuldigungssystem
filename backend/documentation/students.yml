@@ -1,0 +1,60 @@
+openapi: '3.0.2'
+info:
+  title: Students
+  version: '1.0'
+paths:
+  /students:
+    get:
+      tags:
+        - Students
+      summary: Delivers all students
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                title: Student
+                additionalProperties: false
+                properties:
+                  id:
+                    type: integer
+                    example: 12
+                  name:
+                    type: string
+                    example: John Doe
+                  birthDate:
+                    type: number
+                    example: 1673434584134
+                  email:
+                    type: string
+                    example: john.doe@test.com
+                    # todo add class and absences
+                  lastUpdated:
+                    type: number
+                    example: 1673434584134
+components:
+  schemas:
+    student:
+      type: object
+      title: Student
+      additionalProperties: false
+      properties:
+        id:
+          type: integer
+          example: 12
+        name:
+          type: string
+          example: John Doe
+        birthDate:
+          type: number
+          example: 1673434584134
+        email:
+          type: string
+          example: john.doe@test.com
+          # todo add class and absences
+        # todo jan, da wird es ein problem geben -> besprechen wir wenn du nochmal da bist
+        lastUpdated:
+          type: number
+          example: 1673434584134

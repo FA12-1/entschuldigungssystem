@@ -1,19 +1,18 @@
 import { Request } from "express";
+import { DBAdmin } from "../entities/admin";
+import { IAPIResponse } from "../interfaces/IAPIResponse";
 import { APIBase } from "../lib/apiBaseNew";
 import { APISystem } from "../lib/apiSystem";
-import { IAPIResponse } from "../interfaces/IAPIResponse";
-import { Core } from "../lib/core";
-import { DBAdmin } from "../entities/admin";
 
 export class AbsenceAPI extends APIBase {
     constructor(apiSystem: APISystem) {
         super(apiSystem, {
-           apiName: 'absence',
-           buildNumber: 1,
-           requirements: {
-            minSimpleAPIBuild: 0,
-            maxSimpleAPIBuild: 0
-           }
+            apiName: 'absence',
+            buildNumber: 1,
+            requirements: {
+                minSimpleAPIBuild: 0,
+                maxSimpleAPIBuild: 0
+            }
         })
     }
 
@@ -24,7 +23,7 @@ export class AbsenceAPI extends APIBase {
     }
 
     checkAppToken(token: string) {
-        if(token == '481923pkfui932iktjhui891okjnji987ujgmoa') {
+        if (token == '481923pkfui932iktjhui891okjnji987ujgmoa') {
             return true;
         } else {
             return false;
@@ -43,10 +42,10 @@ export class AbsenceAPI extends APIBase {
         const authToken = req.header('x-auth-token');
         let appTokenValid = false;
         let authTokenLevel = '';
-        if(appToken) {
+        if (appToken) {
             appTokenValid = this.checkAppToken(appToken);
-        } 
-        if(authToken) {
+        }
+        if (authToken) {
             authTokenLevel = this.checkAuthToken(authToken);
         }
         return [appTokenValid, authTokenLevel];
@@ -68,6 +67,7 @@ export class AbsenceAPI extends APIBase {
                         success: (appTokenValid ? true : false),
                         message: ''
                     },
+                    // todo jan, warum nicht top level?
                     data: {
                         admins: (appTokenValid ? await DBAdmin.find() : [])
                     }

@@ -5,5 +5,9 @@ info:
 servers:
   - url: todo
 paths:
-  /users:
-    $ref: ./user.yaml#/paths/~1users
+  /students:
+    $ref: ./students.yml#/paths/~1students
+  /admin:
+    $ref: ./admin.yml#/paths/~1admins
+  /admin/{adminId}:
+    $ref: ./admin.yml#/paths/~1admins~1{adminId}

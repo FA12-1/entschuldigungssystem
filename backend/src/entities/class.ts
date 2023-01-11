@@ -1,4 +1,4 @@
-import { Entity, PrimaryGeneratedColumn, Column, BaseEntity, OneToMany, ManyToMany } from "typeorm"
+import { BaseEntity, Column, Entity, ManyToMany, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 import { DBProffessor } from "./professor";
 import { DBStudent } from "./student";
 
@@ -18,6 +18,7 @@ export class DBClass extends BaseEntity {
     @OneToMany(() => DBStudent, (student) => student.class)
     students: DBStudent[];
 
+    // todo jan, warum hat eine klasse ein passwort?
     @Column()
     private password: string;
 
