@@ -1,0 +1,30 @@
+openapi: '3.0.2'
+info:
+  title: User
+  version: '1.0'
+paths:
+  /users:
+    get:
+      tags:
+        - Users
+      summary: Delivers all users
+      responses:
+        '200':
+          description: OK
+components:
+  schemas:
+    user:
+      type: object
+      title: User
+      required:
+        - id
+        - username
+        - permissions
+        - tokens
+      additionalProperties: false
+      properties:
+        id:
+          type: integer
+          nullable: false
+          example: 12
+          description: Incremental value for identifying the object.

@@ -1,0 +1,9 @@
+openapi: '3.0.2'
+info:
+  title: Entschuldigungssystem
+  version: '1.0'
+servers:
+  - url: todo
+paths:
+  /users:
+    $ref: ./user.yaml#/paths/~1users
