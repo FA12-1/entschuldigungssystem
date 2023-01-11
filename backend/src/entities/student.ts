@@ -8,7 +8,7 @@ export class DBStudent extends BaseEntity {
     id: number;
 
     @Column('uuid')
-    private token: string;
+    token: string;
 
     @Column()
     name: string;

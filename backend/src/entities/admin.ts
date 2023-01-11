@@ -14,7 +14,7 @@ export class DBAdmin extends BaseEntity {
     email: string;
 
     @Column()
-    private password: string;
+    password: string;
 
     @Column()
     lastUpdated: Date;
