@@ -15,7 +15,7 @@ export class DBProffessor extends BaseEntity {
     email: string;
 
     @Column()
-    private password: string;
+    password: string;
 
     @ManyToMany(() => DBClass, (dbclass) => dbclass.professors)
     classes: DBClass[];
