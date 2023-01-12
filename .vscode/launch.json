@@ -1,0 +1,22 @@
+{
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"type": "node",
+			"request": "launch",
+			"name": "API",
+			"cwd": "${workspaceFolder}/backend",
+			"runtimeExecutable": "yarn",
+			"runtimeArgs": ["dev"],
+			"skipFiles": ["backend/<node_internals>/**"],
+			"console": "integratedTerminal"
+		}
+	]
+	// "compounds": [
+	// 	{
+	// 		"name": "App",
+	// 		"configurations": ["API"],
+	// 		"stopAll": true
+	// 	}
+	// ]
+}
