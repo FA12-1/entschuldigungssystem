@@ -1,11 +1,4 @@
-import {
-	BaseEntity,
-	Column,
-	Entity,
-	PrimaryGeneratedColumn,
-	Unique,
-	UpdateDateColumn,
-} from 'typeorm';
+import { BaseEntity, Column, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm';
 
 @Entity({ name: 'admin' })
 export class DBAdmin extends BaseEntity {
