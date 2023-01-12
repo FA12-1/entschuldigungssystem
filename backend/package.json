@@ -1,29 +1,12 @@
 {
-  "name": "mythcode-simpleapi",
-  "version": "0.1",
-  "description": "A simple API boilerplate used for many Mythcode projects",
-  "main": "bin/app.js",
+  "name": "backend",
+  "version": "0.1.0",
+  "main": "index.js",
+  "license": "MIT",
+  "private": true,
   "scripts": {
-    "test": "nodemon bin/app.js",
-    "build": "tsc",
-    "startonly": "node bin/app.js",
-    "start": "npm run build && npm run startonly"
-  },
-  "author": "Mythcode <mythcode.xyz>",
-  "license": "ISC",
-  "dependencies": {
-    "@types/bcrypt": "^5.0.0",
-    "@types/express": "^4.17.13",
-    "bcrypt": "^5.1.0",
-    "date-fns": "^2.29.3",
-    "dotenv": "^16.0.0",
-    "express": "^4.17.3",
-    "fs": "^0.0.1-security",
-    "mysql": "^2.18.1",
-    "path": "^0.12.7",
-    "typeorm": "^0.3.6"
-  },
-  "devDependencies": {
-    "nodemon": "^2.0.20"
+    "dev": "nodemon --config \"./nodemon.json\"",
+    "build": "rm -rf ./out/ && cd src && tsc",
+    "start": "node ./out/index.js"
   }
 }
