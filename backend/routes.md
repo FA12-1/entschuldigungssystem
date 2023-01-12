@@ -3,8 +3,8 @@
 - [ ] `/api`
   - [x] GET `/`: Get API status
   - [ ] `/classes`
-    - [ ] GET `/`: Get all classes
-    - [ ] POST `/`: Add a class
+    - [x] GET `/`: Get all classes
+    - [x] POST `/`: Add a class
     - [ ] PUT `/:id`: Update a class
     - [ ] DELETE `/:id`: Delete a class
     - [ ] POST `/:id/teachers`: Add teacher to a class
