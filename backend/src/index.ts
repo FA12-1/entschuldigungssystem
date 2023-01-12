@@ -2,7 +2,7 @@ import http from 'http';
 import { app } from './app';
 import { datasource } from './config/db';
 import { ENV } from './config/env';
-import { normalizePort } from './util/start';
+import { createInitialAdminAccount, normalizePort } from './util/start';
 
 const port = normalizePort(ENV.PORT);
 app.set('port', port);
@@ -21,6 +21,7 @@ server.on('listening', onListening);
 async function setup() {
 	try {
 		await datasource.initialize();
+		// await createInitialAdminAccount();
 	} catch (err) {
 		console.error('Error initializing database');
 		console.error(err);

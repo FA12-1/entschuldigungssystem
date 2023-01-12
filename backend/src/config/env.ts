@@ -14,4 +14,6 @@ export const ENV = cleanEnv(process.env, {
 	DB_NAME: str(),
 	DB_LOGGING_ENABLED: bool({ default: false }),
 	ADMIN_TOKEN: str(),
+	ADMIN_EMAIL: str({ default: 'admin@example.com' }),
+	ADMIN_PASSWORD: str({ default: 'admin' }),
 });
