@@ -26,7 +26,7 @@ export function normalizePort(value: string): number | string | false {
 
 export async function createInitialAdminAccount() {
 	// check if admin account already exists
-	const admin = await DBAdmin.find({ where: { email: ENV.ADMIN_EMAIL } });
+	const admin = await DBAdmin.findOne({ where: { email: ENV.ADMIN_EMAIL } });
 	if (!admin) {
 		const newAdmin = await DBAdmin.create({
 			name: 'Admin',

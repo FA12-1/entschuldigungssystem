@@ -12,7 +12,7 @@ import { DBTeacher } from './teacher';
 
 @Entity({ name: 'class' })
 export class DBClass extends BaseEntity {
-	@PrimaryGeneratedColumn()
+	@PrimaryGeneratedColumn('uuid')
 	public readonly id: string;
 
 	@Column({ unique: true })

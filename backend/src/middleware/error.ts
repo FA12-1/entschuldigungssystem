@@ -14,6 +14,6 @@ export const errorHandler = () => (err: any, req: Request, res: Response, next: 
 
 	// any other error
 	logger.error('Unhandled exception:');
-	console.error(err);
+	console.log(err);
 	return res.status(500).send('Something went wrong.');
 };

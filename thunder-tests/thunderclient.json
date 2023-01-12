@@ -1,0 +1,49 @@
+[
+  {
+    "_id": "fa687285-3c0c-4add-b690-8f3d0147b16b",
+    "colId": "1e5a3aca-464c-4663-b8ca-b63a57838836",
+    "containerId": "eb694302-2b2e-4f10-8394-0735c20fb247",
+    "name": "get API status",
+    "url": "{{host}}/api",
+    "method": "GET",
+    "sortNum": 10000,
+    "created": "2023-01-12T11:21:19.888Z",
+    "modified": "2023-01-12T11:21:28.314Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "2a60272e-e8f6-4819-9317-e59ed62c254a",
+    "colId": "1e5a3aca-464c-4663-b8ca-b63a57838836",
+    "containerId": "6027779d-525c-44b4-a78b-0250efb122f3",
+    "name": "get classes",
+    "url": "{{host}}/api/classes",
+    "method": "GET",
+    "sortNum": 20000,
+    "created": "2023-01-12T11:21:44.675Z",
+    "modified": "2023-01-12T11:21:51.594Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "316b04b5-783b-4319-a2d6-54855affb462",
+    "colId": "1e5a3aca-464c-4663-b8ca-b63a57838836",
+    "containerId": "6027779d-525c-44b4-a78b-0250efb122f3",
+    "name": "add class",
+    "url": "{{host}}/api/classes",
+    "method": "POST",
+    "sortNum": 30000,
+    "created": "2023-01-12T11:22:01.840Z",
+    "modified": "2023-01-12T11:42:24.243Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\": \"FA 12.1\"\n}",
+      "form": []
+    },
+    "tests": []
+  }
+]
