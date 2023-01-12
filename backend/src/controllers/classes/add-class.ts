@@ -38,5 +38,4 @@ export async function addClass(req: Req, res: Response, next: NextFunction) {
 	} catch (err) {
 		return next(err);
 	}
-	return res.status(200).send('ok');
 }
