@@ -26,7 +26,7 @@ export class DBStudent extends BaseEntity {
 	@Column()
 	public birthday: Date;
 
-	@Column()
+	@Column({ unique: true })
 	public email: string;
 
 	@ManyToOne(() => DBClass, (x) => x.students)

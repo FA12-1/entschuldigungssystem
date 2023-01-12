@@ -15,7 +15,7 @@ export class DBClass extends BaseEntity {
 	@PrimaryGeneratedColumn()
 	public readonly id: string;
 
-	@Column()
+	@Column({ unique: true })
 	public name: string;
 
 	@ManyToMany(() => DBTeacher, (x) => x.classes)
