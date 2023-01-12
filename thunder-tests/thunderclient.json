@@ -45,5 +45,24 @@
       "form": []
     },
     "tests": []
+  },
+  {
+    "_id": "9cb37365-ab6f-4f32-a7c6-7eca098d9fcb",
+    "colId": "1e5a3aca-464c-4663-b8ca-b63a57838836",
+    "containerId": "6027779d-525c-44b4-a78b-0250efb122f3",
+    "name": "update class",
+    "url": "{{host}}/api/classes/25c3b40c-88c9-4f39-883d-9fe6b556726c",
+    "method": "PUT",
+    "sortNum": 40000,
+    "created": "2023-01-12T12:03:24.673Z",
+    "modified": "2023-01-12T12:30:14.805Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\": \"FA 12.2\"\n}",
+      "form": []
+    },
+    "tests": []
   }
 ]
