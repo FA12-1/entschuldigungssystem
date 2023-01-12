@@ -6,7 +6,7 @@ import httpLogger from 'tw-express-http-logger';
 import { errorHandler } from './middleware/error';
 
 // create express application
-export const app: express.Application = express();
+const app: express.Application = express();
 
 // remove x-powered-by
 app.disable('x-powered-by');
@@ -22,3 +22,5 @@ app.use(cookieParser());
 app.use('/api', apiRoutes);
 
 app.use(errorHandler());
+
+export default app;

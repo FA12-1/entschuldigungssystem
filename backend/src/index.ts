@@ -1,5 +1,5 @@
 import http from 'http';
-import { app } from './app';
+import app from './app';
 import { datasource } from './config/db';
 import { ENV } from './config/env';
 import { createInitialAdminAccount, normalizePort } from './util/start';
