@@ -1,6 +1,6 @@
 import 'reflect-metadata';
 import { DataSource } from 'typeorm';
-// import { entities } from '../models';
+import { entities } from '../models';
 import { ENV } from './env';
 
 export const datasource: DataSource = new DataSource({
@@ -11,5 +11,5 @@ export const datasource: DataSource = new DataSource({
 	database: ENV.DB_NAME,
 	synchronize: true,
 	logging: ENV.DB_LOGGING_ENABLED,
-	// entities: entities,
+	entities: entities,
 });
