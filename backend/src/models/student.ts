@@ -4,21 +4,19 @@ import {
 	Entity,
 	ManyToOne,
 	OneToMany,
-	OneToOne,
 	PrimaryGeneratedColumn,
 	UpdateDateColumn,
 } from 'typeorm';
 import { DBAbsence } from './absence';
 import { DBClass } from './class';
-import { DBToken } from './token';
 
 @Entity({ name: 'student' })
 export class DBStudent extends BaseEntity {
 	@PrimaryGeneratedColumn('uuid')
 	public readonly id: string;
 
-	@OneToOne(() => DBToken)
-	public token: DBToken;
+	@Column({ generated: 'uuid', unique: true })
+	public token: string;
 
 	@Column()
 	public name: string;

@@ -1,7 +1,8 @@
 import { NextFunction, Request, Response } from 'express';
 import z from 'zod';
 import { DBClass } from '../../models/class';
-import { checkUuid } from '../../util';
+import { DBTeacher } from '../../models/teacher';
+import { AuthRequest, checkUuid } from '../../util';
 
 type Data = {
 	name: string;
@@ -19,7 +20,7 @@ function validateData(data: Data) {
 
 type Req = Request<{ id: string }, {}, Data>;
 
-export async function updateClass(req: Req, res: Response, next: NextFunction) {
+export async function updateClass(req: AuthRequest, res: Response, next: NextFunction) {
 	try {
 		checkUuid(req.params.id);
 		const data = validateData(req.body);
@@ -28,6 +29,16 @@ export async function updateClass(req: Req, res: Response, next: NextFunction) {
 		const _class = await DBClass.findOne({ where: { id: req.params.id } });
 		if (!_class) {
 			return res.status(400).send(`Class with ID '${req.params.id}' does not exist.`);
+		}
+
+		console.log(_class.teachers);
+
+		// find authenticated user
+		if (req.user !== undefined && req.user instanceof DBTeacher) {
+			// check if authenticated user is a teacher of the class
+			if (!_class.teachers?.some((teacher) => teacher.id === req.user!.id)) {
+				return res.status(401).send('Permission denied.');
+			}
 		}
 
 		// update class

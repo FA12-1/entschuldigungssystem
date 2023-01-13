@@ -19,8 +19,8 @@ export class DBTeacher extends BaseEntity {
 	@Column({ unique: true })
 	email: string;
 
-	@Column()
-	password: string;
+	@Column({ generated: 'uuid', unique: true })
+	public token: string;
 
 	@ManyToMany(() => DBClass, (x) => x.teachers)
 	classes: DBClass[];

@@ -1,6 +1,5 @@
 import { ENV } from '../config/env';
 import { DBAdmin } from '../models/admin';
-import { encryptPassword } from './auth';
 
 /**
  * Normalize a port into a number, string of false
@@ -31,7 +30,6 @@ export async function createInitialAdminAccount() {
 		const newAdmin = await DBAdmin.create({
 			name: 'Admin',
 			email: ENV.ADMIN_EMAIL,
-			password: encryptPassword(ENV.ADMIN_PASSWORD),
 		});
 		newAdmin.save();
 	}
