@@ -6,10 +6,14 @@
     "start": "next start"
   },
   "dependencies": {
+    "@date-io/dayjs": "^2.16.0",
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
     "@mui/icons-material": "^5.11.0",
     "@mui/material": "^5.11.4",
+    "@mui/x-date-pickers": "^5.0.13",
+    "dayjs": "^1.11.7",
+    "moment": "^2.29.4",
     "next": "latest",
     "react": "18.2.0",
     "react-dom": "18.2.0",

@@ -13,6 +13,8 @@ import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import EmailIcon from "@mui/icons-material/Email";
 import useLocalStorage from "../hooks/useLocalStorage";
 import { styled } from "@mui/material/styles";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider/LocalizationProvider";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 
 export default function RootLayout({
     children,
@@ -24,30 +26,32 @@ export default function RootLayout({
     return (
         <html>
             <head />
-            <body>
-                <Drawer variant="persistent" anchor="left" open={open}>
-                    <DrawerHeader>
-                        <IconButton onClick={() => setOpen(!open)}>
-                            <ChevronLeftIcon />
-                        </IconButton>
-                    </DrawerHeader>
-                    <List>
-                        {["Inbox", "Starred", "Send email", "Drafts"].map(
-                            (text, index) => (
-                                <ListItem key={text} disablePadding>
-                                    <ListItemButton>
-                                        <ListItemIcon>
-                                            <EmailIcon />
-                                        </ListItemIcon>
-                                        <ListItemText primary={text} />
-                                    </ListItemButton>
-                                </ListItem>
-                            )
-                        )}
-                    </List>
-                </Drawer>
-                {children}
-            </body>
+            <LocalizationProvider dateAdapter={AdapterDayjs}>
+                <body>
+                    <Drawer variant="persistent" anchor="left" open={open}>
+                        <DrawerHeader>
+                            <IconButton onClick={() => setOpen(!open)}>
+                                <ChevronLeftIcon />
+                            </IconButton>
+                        </DrawerHeader>
+                        <List>
+                            {["Inbox", "Starred", "Send email", "Drafts"].map(
+                                (text, index) => (
+                                    <ListItem key={text} disablePadding>
+                                        <ListItemButton>
+                                            <ListItemIcon>
+                                                <EmailIcon />
+                                            </ListItemIcon>
+                                            <ListItemText primary={text} />
+                                        </ListItemButton>
+                                    </ListItem>
+                                )
+                            )}
+                        </List>
+                    </Drawer>
+                    {children}
+                </body>
+            </LocalizationProvider>
         </html>
     );
 }
