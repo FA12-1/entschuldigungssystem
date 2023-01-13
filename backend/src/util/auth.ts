@@ -1,36 +1,18 @@
-import bcrypt from 'bcrypt';
-import logger from 'tw-logger';
+import { User } from '../models';
+import { DBAdmin } from '../models/admin';
+import { DBStudent } from '../models/student';
+import { DBTeacher } from '../models/teacher';
 
-/**
- * Encrypt password
- * @param {string} input Password to encrypt
- * @returns {string} Encrypted password
- */
-export function encryptPassword(input: string): string {
-	try {
-		const salt = bcrypt.genSaltSync(12);
-		const password = bcrypt.hashSync(input, salt);
-		return password;
-	} catch (err) {
-		logger.error('Hashing password failed');
-		logger.error((err as Error).message);
-		throw new Error('Hashing password failed');
-	}
-}
+export type AuthType = 'admin' | 'teacher' | 'student';
 
-/**
- * Test password against a hash
- * @param {string} password Password to compare
- * @param {string} hash Hash to test against
- * @returns {boolean} true if matching, otherwise false
- */
-export function checkPassword(password: string, hash: string): boolean {
-	try {
-		const passwordMatch = bcrypt.compareSync(password, hash);
-		return passwordMatch;
-	} catch (err) {
-		logger.error('Error checking password');
-		logger.error((err as Error).message);
-		return false;
+export async function findUserByToken(token: string, type?: AuthType): Promise<User | null> {
+	if (type === 'admin') {
+		return await DBAdmin.findOneBy({ token });
+	} else if (type === 'teacher') {
+		return await DBTeacher.findOneBy({ token });
+	} else if (type === 'student') {
+		return await DBStudent.findOneBy({ token });
 	}
+
+	return null;
 }

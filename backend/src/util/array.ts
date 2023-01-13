@@ -1,6 +1,6 @@
-type SingleOrArray<T> = T | T[];
+export type SingleOrArray<T> = T | T[];
 
-const asArray = <T>(value: SingleOrArray<T>) => {
+export const asArray = <T>(value: SingleOrArray<T>): T[] => {
 	if (Array.isArray(value)) {
 		return value;
 	}

@@ -22,8 +22,13 @@
     "method": "GET",
     "sortNum": 20000,
     "created": "2023-01-12T11:21:44.675Z",
-    "modified": "2023-01-12T11:21:51.594Z",
-    "headers": [],
+    "modified": "2023-01-13T07:02:32.565Z",
+    "headers": [
+      {
+        "name": "x-auth-token",
+        "value": "dfabdc8a-9036-4557-9590-7bc3cde2ac96"
+      }
+    ],
     "params": [],
     "tests": []
   },
@@ -55,8 +60,13 @@
     "method": "PUT",
     "sortNum": 40000,
     "created": "2023-01-12T12:03:24.673Z",
-    "modified": "2023-01-12T12:30:14.805Z",
-    "headers": [],
+    "modified": "2023-01-13T07:27:42.642Z",
+    "headers": [
+      {
+        "name": "x-auth-token",
+        "value": "dfabdc8a-9036-4557-9590-7bc3cde2ac96"
+      }
+    ],
     "params": [],
     "body": {
       "type": "json",

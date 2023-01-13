@@ -11,8 +11,8 @@ export class DBAdmin extends BaseEntity {
 	@Column({ unique: true })
 	public email: string;
 
-	@Column()
-	public password: string;
+	@Column({ generated: 'uuid', unique: true })
+	public token: string;
 
 	@UpdateDateColumn()
 	public updatedAt: Date;

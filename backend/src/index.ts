@@ -21,7 +21,7 @@ server.on('listening', onListening);
 async function setup() {
 	try {
 		await datasource.initialize();
-		// await createInitialAdminAccount();
+		await createInitialAdminAccount();
 	} catch (err) {
 		console.error('Error initializing database');
 		console.error(err);
