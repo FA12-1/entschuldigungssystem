@@ -1,22 +1,26 @@
-import express, { Request, Response } from 'express';
-import { AppDataSource } from './data-source';
-import { Core } from './lib/core';
-import { CONFIG } from "./config";
-import { Logger } from './lib/logger';
-import * as path from 'path';
+import express from 'express';
+import cors from 'cors';
+import cookieParser from 'cookie-parser';
+import apiRoutes from './routes';
+import httpLogger from 'tw-express-http-logger';
+import { errorHandler } from './middleware/error';
 
-const APP = express();
-const PORT = CONFIG.API_PORT;
-const BASE_PATH = path.resolve('.');
+// create express application
+const app: express.Application = express();
 
-Logger.ever(CONFIG.SYSTEM_NAME + ' startet auf Port ' + PORT + ' im Anwendungspfad ' + BASE_PATH, { category: 'BASE' });
+// remove x-powered-by
+app.disable('x-powered-by');
 
-AppDataSource.initialize() // initializes Database-Connection
-    .then((dataSource) => {
-        APP.listen(PORT, () => {
-            Logger.ever('WebSockets sind unter Port ' + PORT + ' gestartet.', { category: 'BASE' })
-        })
-        APP.use(express.json());              
-        const CORE = new Core(APP, BASE_PATH); // creates instance of the Core-class
-    })
-    .catch((error) => console.log(error))
+// middleware
+app.use(cors()); //FIXME add config
+app.use(httpLogger());
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(cookieParser());
+
+// serve API
+app.use('/api', apiRoutes);
+
+app.use(errorHandler());
+
+export default app;

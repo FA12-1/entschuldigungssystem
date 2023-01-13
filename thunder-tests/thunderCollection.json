@@ -1,0 +1,24 @@
+[
+  {
+    "_id": "1e5a3aca-464c-4663-b8ca-b63a57838836",
+    "colName": "API",
+    "created": "2023-01-12T11:21:00.867Z",
+    "sortNum": 10000,
+    "folders": [
+      {
+        "_id": "eb694302-2b2e-4f10-8394-0735c20fb247",
+        "name": "API",
+        "containerId": "",
+        "created": "2023-01-12T11:21:10.954Z",
+        "sortNum": 20000
+      },
+      {
+        "_id": "6027779d-525c-44b4-a78b-0250efb122f3",
+        "name": "Classes",
+        "containerId": "",
+        "created": "2023-01-12T11:21:39.565Z",
+        "sortNum": 30000
+      }
+    ]
+  }
+]

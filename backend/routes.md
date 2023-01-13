@@ -1,0 +1,25 @@
+# Routes
+
+- [ ] `/api`
+  - [x] GET `/`: Get API status
+  - [ ] `/classes`
+    - [x] GET `/`: Get all classes
+    - [x] POST `/`: Add a class
+    - [x] PUT `/:id`: Update a class
+    - [ ] DELETE `/:id`: Delete a class
+    - [ ] POST `/:id/teachers`: Add teacher to a class
+    - [ ] DELETE `/:id/teachers/:id`: Remove teacher from class
+    - [ ] POST `/:id/students`: Add student to class
+  - [ ] `/teachers`
+    - [ ] GET `/`: Get all teachers
+    - [ ] POST `/`: Add a teacher
+    - [ ] PUT `/:id`: Update teacher
+    - [ ] DELETE `/:id`: Delete teacher
+  - [ ] `/students`
+    - [ ] GET `/`: Get all students with absences
+    - [ ] PUT `/:id`: Update student
+    - [ ] DELETE `/:id`: Delete student
+  - [ ] `/absences`
+    - [ ] GET `/` Get all absences (filter)
+    - [ ] PATCH `/:id`: Update absence status
+    - [ ] DELETE `/:id`: Delete absence
