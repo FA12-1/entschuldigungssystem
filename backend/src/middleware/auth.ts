@@ -1,10 +1,9 @@
 import { NextFunction, Response } from 'express';
 import { AuthRequest } from '../util';
-import { asArray, SingleOrArray } from '../util/array';
 import { AuthType, findUserByToken } from '../util/auth';
 
 export const auth =
-	(types: SingleOrArray<AuthType>) =>
+	(...types: AuthType[]) =>
 	async (req: AuthRequest, res: Response, next: NextFunction) => {
 		try {
 			// get token from header
@@ -16,7 +15,7 @@ export const auth =
 			// check if token is valid for one of the user types
 			let authenticated = false;
 			await Promise.all(
-				asArray(types).map(async (type) => {
+				types.map(async (type) => {
 					const user = await findUserByToken(token, type);
 					if (user !== null) {
 						authenticated = true;

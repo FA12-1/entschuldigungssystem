@@ -1,6 +1,6 @@
 import { BaseEntity, Column, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm';
 
-@Entity({ name: 'admin' })
+@Entity()
 export class DBAdmin extends BaseEntity {
 	@PrimaryGeneratedColumn('uuid')
 	public readonly id: string;
