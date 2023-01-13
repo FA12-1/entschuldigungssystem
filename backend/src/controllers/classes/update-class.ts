@@ -18,15 +18,15 @@ function validateData(data: Data) {
 	return schema.parse(data);
 }
 
-type Req = Request<{ id: string }, {}, Data>;
+type Req = AuthRequest<{ id: string }, {}, Data>;
 
-export async function updateClass(req: AuthRequest, res: Response, next: NextFunction) {
+export async function updateClass(req: Req, res: Response, next: NextFunction) {
 	try {
 		checkUuid(req.params.id);
 		const data = validateData(req.body);
 
 		// check if class exists
-		const _class = await DBClass.findOne({ where: { id: req.params.id } });
+		const _class = await DBClass.findOneBy({ id: req.params.id });
 		if (!_class) {
 			return res.status(400).send(`Class with ID '${req.params.id}' does not exist.`);
 		}
