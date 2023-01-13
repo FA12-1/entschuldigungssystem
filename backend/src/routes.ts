@@ -1,21 +1,21 @@
 import { Router } from 'express';
 import { getApiStatus } from './controllers/api/get-api-status';
-import { addClass } from './controllers/classes/add-class';
-import { createAndAddTeacherToClass } from './controllers/classes/create-add-teacher';
-import { deleteClass } from './controllers/classes/delete-class';
-import { getClasses } from './controllers/classes/get-classes';
-import { updateClass } from './controllers/classes/update-class';
+import { addCommunity } from './controllers/communities/add-community';
+import { createAndAddTeacherToCommunity } from './controllers/communities/create-add-teacher';
+import { deleteCommunity } from './controllers/communities/delete-community';
+import { getCommunities } from './controllers/communities/get-communities';
+import { updateCommunity } from './controllers/communities/update-community';
 import { auth } from './middleware/auth';
 
 const api = Router();
 
 // API
 api.get('/', getApiStatus);
-// Classes
-api.get('/classes', auth('admin', 'teacher'), getClasses);
-api.post('/classes', auth('admin'), addClass);
-api.put('/classes/:id', auth('admin', 'teacher'), updateClass);
-api.delete('/classes/:id', auth('admin'), deleteClass);
-api.post('/classes/:id/teachers', auth('admin'), createAndAddTeacherToClass);
+// communities
+api.get('/communities', auth('admin', 'teacher'), getCommunities);
+api.post('/communities', auth('admin'), addCommunity);
+api.put('/communities/:id', auth('admin', 'teacher'), updateCommunity);
+api.delete('/communities/:id', auth('admin'), deleteCommunity);
+api.post('/communities/:id/teachers', auth('admin'), createAndAddTeacherToCommunity);
 
 export default api;

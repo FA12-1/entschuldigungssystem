@@ -20,30 +20,30 @@ function validateData(data: Data) {
 
 type Req = AuthRequest<{ id: string }, {}, Data>;
 
-export async function updateClass(req: Req, res: Response, next: NextFunction) {
+export async function updateCommunity(req: Req, res: Response, next: NextFunction) {
 	try {
 		checkUuid(req.params.id);
 		const data = validateData(req.body);
 
-		// check if class exists
-		const _class = await DBCommunity.findOneBy({ id: req.params.id });
-		if (!_class) {
-			return res.status(400).send(`Class with ID '${req.params.id}' does not exist.`);
+		// check if community exists
+		const community = await DBCommunity.findOneBy({ id: req.params.id });
+		if (!community) {
+			return res.status(400).send(`Community with ID '${req.params.id}' does not exist.`);
 		}
 
 		// find authenticated user
 		if (req.user !== undefined && req.user instanceof DBTeacher) {
-			// check if authenticated user is a teacher of the class
-			if (!_class.teachers?.some((teacher) => teacher.id === req.user!.id)) {
+			// check if authenticated user is a teacher of the community
+			if (!community.teachers?.some((teacher) => teacher.id === req.user!.id)) {
 				return res.status(401).send('Permission denied.');
 			}
 		}
 
-		// update class
-		_class.name = data.name;
-		await _class.save();
+		// update community
+		community.name = data.name;
+		await community.save();
 
-		return res.status(201).send(_class);
+		return res.status(201).send(community);
 	} catch (err) {
 		return next(err);
 	}

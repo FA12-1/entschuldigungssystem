@@ -1,7 +1,7 @@
 import { NextFunction, Response } from 'express';
 import { AuthRequest } from '../../util';
 
-export const removeTeacherFromClass = async (
+export const removeTeacherFromCommunity = async (
 	req: AuthRequest,
 	res: Response,
 	next: NextFunction

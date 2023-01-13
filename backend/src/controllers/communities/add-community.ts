@@ -19,23 +19,23 @@ function validateData(data: Data) {
 
 type Req = AuthRequest<{}, {}, Data>;
 
-export async function addClass(req: Req, res: Response, next: NextFunction) {
+export async function addCommunity(req: Req, res: Response, next: NextFunction) {
 	try {
 		const data = validateData(req.body);
 
-		// check if class already exists
-		const existingClass = await DBCommunity.findOne({ where: { name: data.name } });
-		if (existingClass) {
-			return res.status(400).send(`Class '${data.name}' already exists.`);
+		// check if community already exists
+		const existingCommunity = await DBCommunity.findOneBy({ name: data.name });
+		if (existingCommunity) {
+			return res.status(400).send(`Community '${data.name}' already exists.`);
 		}
 
-		// create new class
-		const newClass = DBCommunity.create({
+		// create new community
+		const newCommunity = DBCommunity.create({
 			name: data.name,
 		});
-		await newClass.save();
+		await newCommunity.save();
 
-		return res.status(201).send(newClass);
+		return res.status(201).send(newCommunity);
 	} catch (err) {
 		return next(err);
 	}

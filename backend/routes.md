@@ -2,15 +2,15 @@
 
 - [ ] `/api`
   - [x] GET `/`: Get API status
-  - [ ] `/classes`
-    - [x] GET `/`: Get all classes
-    - [x] POST `/`: Add a class
-    - [x] PUT `/:id`: Update a class
-    - [x] DELETE `/:id`: Delete a class
-    - [ ] POST `/:id/teachers/`: Add teacher and add it to the class
-    - [ ] POST `/:id/teachers/:id`: Add existing teacher to a class
-    - [ ] DELETE `/:id/teachers/:id`: Remove teacher from class
-    - [ ] POST `/:id/students`: Add student to class
+  - [ ] `/communities`
+    - [x] GET `/`: Get all communities
+    - [x] POST `/`: Add a community
+    - [x] PUT `/:id`: Update a community
+    - [x] DELETE `/:id`: Delete a community
+    - [x] POST `/:id/teachers/`: Add teacher and add it to the community
+    - [ ] POST `/:id/teachers/:id`: Add existing teacher to a community
+    - [ ] DELETE `/:id/teachers/:id`: Remove teacher from community
+    - [ ] POST `/:id/students`: Add student to community
   - [ ] `/teachers`
     - [ ] GET `/`: Get all teachers
     - [ ] POST `/`: Add a teacher

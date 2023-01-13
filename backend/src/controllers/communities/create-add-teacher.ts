@@ -20,11 +20,15 @@ function validateData(data: Data) {
 
 type Req = AuthRequest<{ id: string }, {}, Data>;
 
-export const createAndAddTeacherToClass = async (req: Req, res: Response, next: NextFunction) => {
+export const createAndAddTeacherToCommunity = async (
+	req: Req,
+	res: Response,
+	next: NextFunction
+) => {
 	try {
 		const data = validateData(req.body);
 
-		// check if class exists
+		// check if community exists
 		const community = await DBCommunity.findOne({
 			where: { id: req.params.id },
 			relations: { teachers: true },
@@ -41,7 +45,7 @@ export const createAndAddTeacherToClass = async (req: Req, res: Response, next: 
 		const teacher = await DBTeacher.create({ ...data });
 		await teacher.save();
 
-		// add teacher to class
+		// add teacher to community
 		community.teachers.push(teacher);
 		await community.save();
 
