@@ -31,8 +31,6 @@ export async function updateClass(req: AuthRequest, res: Response, next: NextFun
 			return res.status(400).send(`Class with ID '${req.params.id}' does not exist.`);
 		}
 
-		console.log(_class.teachers);
-
 		// find authenticated user
 		if (req.user !== undefined && req.user instanceof DBTeacher) {
 			// check if authenticated user is a teacher of the class
