@@ -41,8 +41,13 @@
     "method": "POST",
     "sortNum": 30000,
     "created": "2023-01-12T11:22:01.840Z",
-    "modified": "2023-01-12T11:42:24.243Z",
-    "headers": [],
+    "modified": "2023-01-13T08:46:52.096Z",
+    "headers": [
+      {
+        "name": "x-auth-token",
+        "value": "{{token}}"
+      }
+    ],
     "params": [],
     "body": {
       "type": "json",
@@ -60,11 +65,11 @@
     "method": "PUT",
     "sortNum": 40000,
     "created": "2023-01-12T12:03:24.673Z",
-    "modified": "2023-01-13T07:27:42.642Z",
+    "modified": "2023-01-13T08:10:50.628Z",
     "headers": [
       {
         "name": "x-auth-token",
-        "value": "dfabdc8a-9036-4557-9590-7bc3cde2ac96"
+        "value": "{{token}}"
       }
     ],
     "params": [],
@@ -73,6 +78,25 @@
       "raw": "{\n  \"name\": \"FA 12.2\"\n}",
       "form": []
     },
+    "tests": []
+  },
+  {
+    "_id": "4a133a6b-7c0e-49f9-9ea2-f0a4ccd40c11",
+    "colId": "1e5a3aca-464c-4663-b8ca-b63a57838836",
+    "containerId": "6027779d-525c-44b4-a78b-0250efb122f3",
+    "name": "delete class",
+    "url": "{{host}}/api/classes/0683f9de-687a-4a6d-8397-da3f5ebb3fc1",
+    "method": "DELETE",
+    "sortNum": 50000,
+    "created": "2023-01-13T08:03:46.737Z",
+    "modified": "2023-01-13T08:47:02.871Z",
+    "headers": [
+      {
+        "name": "x-auth-token",
+        "value": "{{token}}"
+      }
+    ],
+    "params": [],
     "tests": []
   }
 ]

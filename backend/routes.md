@@ -6,8 +6,9 @@
     - [x] GET `/`: Get all classes
     - [x] POST `/`: Add a class
     - [x] PUT `/:id`: Update a class
-    - [ ] DELETE `/:id`: Delete a class
-    - [ ] POST `/:id/teachers`: Add teacher to a class
+    - [x] DELETE `/:id`: Delete a class
+    - [ ] POST `/:id/teachers/`: Add teacher and add it to the class
+    - [ ] POST `/:id/teachers/:id`: Add existing teacher to a class
     - [ ] DELETE `/:id/teachers/:id`: Remove teacher from class
     - [ ] POST `/:id/students`: Add student to class
   - [ ] `/teachers`
