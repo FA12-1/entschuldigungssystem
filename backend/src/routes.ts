@@ -11,7 +11,7 @@ const api = Router();
 api.get('/', getApiStatus);
 // Classes
 api.get('/classes', auth(['admin', 'teacher']), getClasses);
-api.post('/classes', auth(['admin', 'teacher']), addClass);
+api.post('/classes', auth(['admin']), addClass);
 api.put('/classes/:id', auth(['admin', 'teacher']), updateClass);
 
 export default api;
