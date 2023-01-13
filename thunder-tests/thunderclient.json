@@ -22,11 +22,11 @@
     "method": "GET",
     "sortNum": 20000,
     "created": "2023-01-12T11:21:44.675Z",
-    "modified": "2023-01-13T07:02:32.565Z",
+    "modified": "2023-01-13T09:50:37.395Z",
     "headers": [
       {
         "name": "x-auth-token",
-        "value": "dfabdc8a-9036-4557-9590-7bc3cde2ac96"
+        "value": "{{token}}"
       }
     ],
     "params": [],
@@ -97,6 +97,30 @@
       }
     ],
     "params": [],
+    "tests": []
+  },
+  {
+    "_id": "c3f08c24-3596-48e7-b3f3-a9c9688c95a0",
+    "colId": "1e5a3aca-464c-4663-b8ca-b63a57838836",
+    "containerId": "6027779d-525c-44b4-a78b-0250efb122f3",
+    "name": "create and add teacher to class",
+    "url": "{{host}}/api/classes/9d91bb10-3bce-4791-a518-509ee0f4ec5b/teachers",
+    "method": "POST",
+    "sortNum": 60000,
+    "created": "2023-01-13T09:26:55.963Z",
+    "modified": "2023-01-13T09:57:34.291Z",
+    "headers": [
+      {
+        "name": "x-auth-token",
+        "value": "{{token}}"
+      }
+    ],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\": \"Martin Kreutzer\",\n  \"email\": \"m.kreutzer@schule.saarland\"\n}",
+      "form": []
+    },
     "tests": []
   }
 ]

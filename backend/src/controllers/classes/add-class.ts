@@ -1,6 +1,7 @@
-import { NextFunction, Request, Response } from 'express';
+import { NextFunction, Response } from 'express';
 import z from 'zod';
-import { DBClass } from '../../models/class';
+import { DBCommunity } from '../../models/community';
+import { AuthRequest } from '../../util';
 
 type Data = {
 	name: string;
@@ -9,27 +10,27 @@ type Data = {
 function validateData(data: Data) {
 	const schema = z
 		.object({
-			name: z.string().max(20),
+			name: z.string().max(100),
 		})
 		.strict();
 
 	return schema.parse(data);
 }
 
-type Req = Request<{}, {}, Data>;
+type Req = AuthRequest<{}, {}, Data>;
 
 export async function addClass(req: Req, res: Response, next: NextFunction) {
 	try {
 		const data = validateData(req.body);
 
 		// check if class already exists
-		const existingClass = await DBClass.findOne({ where: { name: data.name } });
+		const existingClass = await DBCommunity.findOne({ where: { name: data.name } });
 		if (existingClass) {
 			return res.status(400).send(`Class '${data.name}' already exists.`);
 		}
 
 		// create new class
-		const newClass = DBClass.create({
+		const newClass = DBCommunity.create({
 			name: data.name,
 		});
 		await newClass.save();

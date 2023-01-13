@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from 'express';
 import z from 'zod';
-import { DBClass } from '../../models/class';
+import { DBCommunity } from '../../models/community';
 import { DBTeacher } from '../../models/teacher';
 import { AuthRequest, checkUuid } from '../../util';
 
@@ -26,7 +26,7 @@ export async function updateClass(req: Req, res: Response, next: NextFunction) {
 		const data = validateData(req.body);
 
 		// check if class exists
-		const _class = await DBClass.findOneBy({ id: req.params.id });
+		const _class = await DBCommunity.findOneBy({ id: req.params.id });
 		if (!_class) {
 			return res.status(400).send(`Class with ID '${req.params.id}' does not exist.`);
 		}
