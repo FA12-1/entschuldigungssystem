@@ -18,7 +18,7 @@
     - [x] POST `/`: Add a teacher
     - [x] PATCH `/:id`: Update teacher
     - [x] PATCH `/:id/token`: Update teacher token
-    - [ ] DELETE `/:id`: Delete teacher
+    - [x] DELETE `/:id`: Delete teacher
   - [ ] `/students`
     - [ ] GET `/`: Get all students with absences
     - [ ] PUT `/:id`: Update student

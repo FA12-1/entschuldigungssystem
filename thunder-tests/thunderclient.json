@@ -213,14 +213,27 @@
     "method": "PATCH",
     "sortNum": 110000,
     "created": "2023-01-14T02:57:50.666Z",
-    "modified": "2023-01-14T02:58:15.827Z",
+    "modified": "2023-01-14T03:09:10.279Z",
     "headers": [],
     "params": [],
-    "body": {
-      "type": "json",
-      "raw": "{\n  \"name\": \"Teacher 1\"\n}",
-      "form": []
+    "auth": {
+      "type": "bearer",
+      "bearer": "{{token}}"
     },
+    "tests": []
+  },
+  {
+    "_id": "81eac8ba-91f3-49c4-9c5e-a33bc304557e",
+    "colId": "1e5a3aca-464c-4663-b8ca-b63a57838836",
+    "containerId": "67e3a16f-0b38-4cea-b90f-08e3456056e8",
+    "name": "delete teacher",
+    "url": "{{host}}/api/teachers/546eb398-d20b-4ca3-a9ce-5b20c6670aff",
+    "method": "DELETE",
+    "sortNum": 120000,
+    "created": "2023-01-14T03:04:55.940Z",
+    "modified": "2023-01-14T03:11:57.083Z",
+    "headers": [],
+    "params": [],
     "auth": {
       "type": "bearer",
       "bearer": "{{token}}"
