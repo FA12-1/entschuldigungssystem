@@ -3,25 +3,19 @@ import z from 'zod';
 import { DBCommunity } from '../../models/community';
 import { AuthRequest } from '../../util';
 
-type Data = {
-	name: string;
-};
-
-function validateData(data: Data) {
-	const schema = z
-		.object({
-			name: z.string().max(100),
-		})
-		.strict();
-
-	return schema.parse(data);
-}
+const schema = z
+	.object({
+		name: z.string().max(100),
+	})
+	.strict();
+type Data = z.infer<typeof schema>;
+const validate = (data: Data) => schema.parse(data);
 
 type Req = AuthRequest<{}, {}, Data>;
 
 export async function addCommunity(req: Req, res: Response, next: NextFunction) {
 	try {
-		const data = validateData(req.body);
+		const data = validate(req.body);
 
 		// check if community already exists
 		const existingCommunity = await DBCommunity.findOneBy({ name: data.name });
@@ -30,9 +24,7 @@ export async function addCommunity(req: Req, res: Response, next: NextFunction) 
 		}
 
 		// create new community
-		const newCommunity = DBCommunity.create({
-			name: data.name,
-		});
+		const newCommunity = DBCommunity.create({ ...data });
 		await newCommunity.save();
 
 		return res.status(201).send(newCommunity);

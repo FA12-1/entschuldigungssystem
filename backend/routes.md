@@ -3,7 +3,8 @@
 - [ ] `/api`
   - [x] GET `/`: Get API status
   - [ ] `/communities`
-    - [x] GET `/`: Get all communities
+    - [x] GET `/`: Get all communities if admin and own communities if teacher
+    - [ ] GET `/:id`: Get community including relational fields
     - [x] POST `/`: Add a community
     - [x] PUT `/:id`: Update a community
     - [x] DELETE `/:id`: Delete a community
@@ -12,10 +13,12 @@
     - [ ] DELETE `/:id/teachers/:id`: Remove teacher from community
     - [ ] POST `/:id/students`: Add student to community
   - [ ] `/teachers`
-    - [ ] GET `/`: Get all teachers
-    - [ ] POST `/`: Add a teacher
-    - [ ] PUT `/:id`: Update teacher
-    - [ ] DELETE `/:id`: Delete teacher
+    - [x] GET `/`: Get all teachers
+    - [x] GET `/:id`: Get teacher including relational fields
+    - [x] POST `/`: Add a teacher
+    - [x] PATCH `/:id`: Update teacher
+    - [x] PATCH `/:id/token`: Update teacher token
+    - [x] DELETE `/:id`: Delete teacher
   - [ ] `/students`
     - [ ] GET `/`: Get all students with absences
     - [ ] PUT `/:id`: Update student

@@ -1,5 +1,5 @@
 import { BaseEntity, Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
-import { AbsenceStatus, AbsenceType } from '../types/absence';
+import { AbsenceStatus, AbsenceType } from '.';
 import { DBStudent } from './student';
 
 @Entity()

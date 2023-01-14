@@ -1,0 +1,54 @@
+openapi: '3.0.2'
+info:
+  title: Classes
+  version: '1.0'
+paths:
+  /classes:
+    get:
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/class'
+
+    post:
+      responses:
+        200:
+          description: OK
+  /classes/{classId}:
+    get:
+      responses:
+        200:
+          description: OK
+    put:
+      responses:
+        200:
+          description: OK
+    delete:
+      responses:
+        200:
+          description: OK
+
+components:
+  schemas:
+    class:
+      type: object
+      title: Class
+      additionalProperties: false
+      properties:
+        id:
+          type: integer
+          example: 12
+        name:
+          type: string
+          example: FA12.1
+        students:
+          type: array
+          items:
+            $ref: ./students.yml#/components/schemas/student
+        # todo add professors
+        lastUpdated:
+          type: number
+          example: 1673434584134
