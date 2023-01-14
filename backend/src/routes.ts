@@ -15,6 +15,7 @@ import { updateTeacher } from './controllers/teachers/update-teacher';
 import { updateTeacherToken } from './controllers/teachers/update-teacher-token';
 import { auth } from './middleware/auth';
 import { addTeacherToCommunity } from './controllers/communities/teachers/add-teacher';
+import { removeTeacherFromCommunity } from './controllers/communities/teachers/remove-teacher';
 
 const api = Router();
 
@@ -29,6 +30,7 @@ api.put('/communities/:id', auth('admin', 'teacher'), updateCommunity);
 api.delete('/communities/:id', auth('admin'), deleteCommunity);
 api.post('/communities/:id/teachers', auth('admin'), createAndAddTeacherToCommunity);
 api.post('/communities/:id/teachers/:teacherid', auth('admin'), addTeacherToCommunity);
+api.delete('/communities/:id/teachers/:teacherid', auth('admin'), removeTeacherFromCommunity);
 // teachers
 api.get('/teachers', auth('admin'), getTeachers);
 api.get('/teachers/:id', auth('admin'), getTeacher);

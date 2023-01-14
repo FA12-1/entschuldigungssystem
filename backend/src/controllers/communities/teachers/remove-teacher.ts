@@ -1,5 +1,5 @@
-import { DBTeacher } from '../../../models/teacher';
 import { DBCommunity } from '../../../models/community';
+import { DBTeacher } from '../../../models/teacher';
 import { AuthController } from '../../../util';
 
 type Params = {
@@ -7,7 +7,7 @@ type Params = {
 	teacherid: string;
 };
 
-export const addTeacherToCommunity: AuthController<Params> = async (req, res, next) => {
+export const removeTeacherFromCommunity: AuthController<Params> = async (req, res, next) => {
 	try {
 		const { id, teacherid } = req.params;
 
@@ -29,8 +29,8 @@ export const addTeacherToCommunity: AuthController<Params> = async (req, res, ne
 			return res.status(404).send(`Teacher with ID '${teacherid}' does not exist.`);
 		}
 
-		// add teacher to community
-		community.teachers.push(teacher);
+		// remove teacher from community
+		community.teachers = community.teachers.filter((x) => x.id !== teacher.id);
 		await community.save();
 
 		// return updated community

@@ -102,13 +102,13 @@
   {
     "_id": "c3f08c24-3596-48e7-b3f3-a9c9688c95a0",
     "colId": "1e5a3aca-464c-4663-b8ca-b63a57838836",
-    "containerId": "6027779d-525c-44b4-a78b-0250efb122f3",
+    "containerId": "8a7488a0-5582-4611-873b-62b091b217e7",
     "name": "create and add teacher to community",
     "url": "{{host}}/api/communities/9d91bb10-3bce-4791-a518-509ee0f4ec5b/teachers",
     "method": "POST",
-    "sortNum": 60000,
+    "sortNum": 10000,
     "created": "2023-01-13T09:26:55.963Z",
-    "modified": "2023-01-14T02:14:41.037Z",
+    "modified": "2023-01-14T19:48:29.497Z",
     "headers": [],
     "params": [],
     "body": {
@@ -279,13 +279,31 @@
   {
     "_id": "4c8e4e28-67a4-41cb-814b-2155b467cfc4",
     "colId": "1e5a3aca-464c-4663-b8ca-b63a57838836",
-    "containerId": "6027779d-525c-44b4-a78b-0250efb122f3",
+    "containerId": "8a7488a0-5582-4611-873b-62b091b217e7",
     "name": "add teacher",
     "url": "{{host}}/api/communities/5ba9a930-0ba1-404b-93f6-f62f0bac2d82/teachers/a2b173b6-207d-4bac-a0c9-427709930c5f",
     "method": "POST",
-    "sortNum": 150000,
+    "sortNum": 20000,
     "created": "2023-01-14T18:53:30.682Z",
-    "modified": "2023-01-14T19:27:45.186Z",
+    "modified": "2023-01-14T19:48:33.138Z",
+    "headers": [],
+    "params": [],
+    "auth": {
+      "type": "bearer",
+      "bearer": "{{token}}"
+    },
+    "tests": []
+  },
+  {
+    "_id": "f3006961-8399-49d1-9fca-eaa06959e5bf",
+    "colId": "1e5a3aca-464c-4663-b8ca-b63a57838836",
+    "containerId": "8a7488a0-5582-4611-873b-62b091b217e7",
+    "name": "remove teacher",
+    "url": "{{host}}/api/communities/5ba9a930-0ba1-404b-93f6-f62f0bac2d82/teachers/a2b173b6-207d-4bac-a0c9-427709930c5f",
+    "method": "DELETE",
+    "sortNum": 160000,
+    "created": "2023-01-14T19:48:48.026Z",
+    "modified": "2023-01-14T19:48:58.608Z",
     "headers": [],
     "params": [],
     "auth": {
