@@ -11,7 +11,7 @@
     - [x] PUT `/:id`: Update a community
     - [x] DELETE `/:id`: Delete a community
     - [x] POST `/:id/teachers/`: Add teacher and add it to the community
-    - [ ] POST `/:id/teachers/:id`: Add existing teacher to a community
+    - [x] POST `/:id/teachers/:id`: Add existing teacher to a community
     - [ ] DELETE `/:id/teachers/:id`: Remove teacher from community
     - [ ] POST `/:id/students`: Add student to community
   - [ ] `/teachers`

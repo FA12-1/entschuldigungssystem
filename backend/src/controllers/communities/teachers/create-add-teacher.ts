@@ -1,8 +1,8 @@
 import { NextFunction, Response } from 'express';
 import { z } from 'zod';
-import { DBCommunity } from '../../models/community';
-import { DBTeacher } from '../../models/teacher';
-import { AuthRequest } from '../../util';
+import { DBCommunity } from '../../../models/community';
+import { DBTeacher } from '../../../models/teacher';
+import { AuthRequest } from '../../../util';
 
 type Data = {
 	name: string;

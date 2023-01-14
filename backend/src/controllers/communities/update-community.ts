@@ -1,8 +1,7 @@
-import { NextFunction, Request, Response } from 'express';
 import z from 'zod';
 import { DBCommunity } from '../../models/community';
 import { DBTeacher } from '../../models/teacher';
-import { AuthRequest, checkUuid } from '../../util';
+import { AuthController, checkUuid } from '../../util';
 
 type Data = {
 	name: string;
@@ -18,9 +17,9 @@ function validateData(data: Data) {
 	return schema.parse(data);
 }
 
-type Req = AuthRequest<{ id: string }, {}, Data>;
+type Params = { id: string };
 
-export async function updateCommunity(req: Req, res: Response, next: NextFunction) {
+export const updateCommunity: AuthController<Params, Data> = async (req, res, next) => {
 	try {
 		checkUuid(req.params.id);
 		const data = validateData(req.body);
@@ -47,4 +46,4 @@ export async function updateCommunity(req: Req, res: Response, next: NextFunctio
 	} catch (err) {
 		return next(err);
 	}
-}
+};

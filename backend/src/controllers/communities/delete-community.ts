@@ -1,10 +1,9 @@
-import { NextFunction, Response } from 'express';
 import { DBCommunity } from '../../models/community';
-import { AuthRequest, checkUuid } from '../../util';
+import { AuthController, checkUuid } from '../../util';
 
-type Req = AuthRequest<{ id: string }>;
+type Params = { id: string };
 
-export const deleteCommunity = async (req: Req, res: Response, next: NextFunction) => {
+export const deleteCommunity: AuthController<Params> = async (req, res, next) => {
 	try {
 		checkUuid(req.params.id);
 

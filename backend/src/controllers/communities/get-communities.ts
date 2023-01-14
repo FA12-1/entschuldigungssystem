@@ -1,9 +1,8 @@
-import { NextFunction, Response } from 'express';
 import { DBCommunity } from '../../models/community';
 import { DBTeacher } from '../../models/teacher';
-import { AuthRequest } from '../../util';
+import { AuthController } from '../../util';
 
-export async function getCommunities(req: AuthRequest, res: Response, next: NextFunction) {
+export const getCommunities: AuthController = async (req, res, next) => {
 	try {
 		// if user is teacher only return communities related to the teacher
 		if (req.user && req.user instanceof DBTeacher) {
@@ -37,4 +36,4 @@ export async function getCommunities(req: AuthRequest, res: Response, next: Next
 	} catch (err) {
 		return next(err);
 	}
-}
+};
