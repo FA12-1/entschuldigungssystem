@@ -157,5 +157,28 @@
       "bearer": "{{token}}"
     },
     "tests": []
+  },
+  {
+    "_id": "6f797503-3c18-49b9-ac0a-6ec4e179c882",
+    "colId": "1e5a3aca-464c-4663-b8ca-b63a57838836",
+    "containerId": "67e3a16f-0b38-4cea-b90f-08e3456056e8",
+    "name": "create teacher",
+    "url": "{{host}}/api/teachers",
+    "method": "POST",
+    "sortNum": 90000,
+    "created": "2023-01-14T02:33:29.392Z",
+    "modified": "2023-01-14T02:42:45.406Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\": \"Teacher 2\",\n  \"email\": \"a.b@x.com\"\n}",
+      "form": []
+    },
+    "auth": {
+      "type": "bearer",
+      "bearer": "{{token}}"
+    },
+    "tests": []
   }
 ]
