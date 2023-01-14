@@ -1,7 +1,6 @@
-import { NextFunction, Response } from 'express';
 import { z } from 'zod';
 import { DBTeacher } from '../../models/teacher';
-import { AuthRequest } from '../../util';
+import { AuthController } from '../../util';
 
 const schema = z.object({
 	firstName: z.string().max(50).optional(),
@@ -11,9 +10,9 @@ const schema = z.object({
 type Data = z.infer<typeof schema>;
 const validate = (data: Data) => schema.parse(data);
 
-type Req = AuthRequest<{ id: string }, {}, Data>;
+type Params = { id: string };
 
-export const updateTeacher = async (req: Req, res: Response, next: NextFunction) => {
+export const updateTeacher: AuthController<Params, Data> = async (req, res, next) => {
 	try {
 		const data = validate(req.body);
 

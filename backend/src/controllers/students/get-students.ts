@@ -1,8 +1,7 @@
-import { NextFunction, Response } from 'express';
 import { DBStudent } from '../../models/student';
-import { AuthRequest } from '../../util';
+import { AuthController } from '../../util';
 
-export const getStudents = async (req: AuthRequest, res: Response, next: NextFunction) => {
+export const getStudents: AuthController = async (req, res, next) => {
 	try {
 		const students = await DBStudent.find({
 			order: { lastName: 'asc', firstName: 'asc' },

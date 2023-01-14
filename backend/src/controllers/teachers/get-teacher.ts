@@ -1,10 +1,9 @@
-import { NextFunction, Response } from 'express';
 import { DBTeacher } from '../../models/teacher';
-import { AuthRequest } from '../../util';
+import { AuthController } from '../../util';
 
-type Req = AuthRequest<{ id: string }>;
+type Params = { id: string };
 
-export const getTeacher = async (req: Req, res: Response, next: NextFunction) => {
+export const getTeacher: AuthController<Params> = async (req, res, next) => {
 	try {
 		const teacher = await DBTeacher.findOne({
 			where: { id: req.params.id },

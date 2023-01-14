@@ -1,11 +1,10 @@
-import { NextFunction, Response } from 'express';
 import { v4 as uuidv4 } from 'uuid';
 import { DBTeacher } from '../../models/teacher';
-import { AuthRequest } from '../../util';
+import { AuthController } from '../../util';
 
-type Req = AuthRequest<{ id: string }>;
+type Params = { id: string };
 
-export const updateTeacherToken = async (req: Req, res: Response, next: NextFunction) => {
+export const updateTeacherToken: AuthController<Params> = async (req, res, next) => {
 	try {
 		// check if teacher exists
 		const teacher = await DBTeacher.findOne({ where: { id: req.params.id } });

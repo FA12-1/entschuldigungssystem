@@ -1,7 +1,6 @@
-import { NextFunction, Response } from 'express';
 import { z } from 'zod';
 import { DBTeacher } from '../../models/teacher';
-import { AuthRequest } from '../../util';
+import { AuthController } from '../../util';
 
 const schema = z
 	.object({
@@ -13,9 +12,7 @@ const schema = z
 type Data = z.infer<typeof schema>;
 const validate = (data: Data) => schema.parse(data);
 
-type Req = AuthRequest<{}, {}, Data>;
-
-export const createTeacher = async (req: Req, res: Response, next: NextFunction) => {
+export const createTeacher: AuthController<{}, Data> = async (req, res, next) => {
 	try {
 		const data = validate(req.body);
 

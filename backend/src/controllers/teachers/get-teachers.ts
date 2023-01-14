@@ -1,8 +1,7 @@
-import { NextFunction, Response } from 'express';
 import { DBTeacher } from '../../models/teacher';
-import { AuthRequest } from '../../util';
+import { AuthController } from '../../util';
 
-export const getTeachers = async (req: AuthRequest, res: Response, next: NextFunction) => {
+export const getTeachers: AuthController = async (req, res, next) => {
 	try {
 		const teachers = await DBTeacher.find({
 			// select: ['id', 'name', 'email'],
