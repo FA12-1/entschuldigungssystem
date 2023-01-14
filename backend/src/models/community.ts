@@ -2,7 +2,6 @@ import {
 	BaseEntity,
 	Column,
 	Entity,
-	JoinColumn,
 	JoinTable,
 	ManyToMany,
 	OneToMany,
