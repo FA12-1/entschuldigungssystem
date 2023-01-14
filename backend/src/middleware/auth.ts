@@ -7,7 +7,8 @@ export const auth =
 	async (req: AuthRequest, res: Response, next: NextFunction) => {
 		try {
 			// get token from header
-			const token = req.header('x-auth-token');
+			const token = req.header('Authorization')?.replace('Bearer', '').trim();
+
 			if (!token) {
 				return res.status(401).send('Access denied. No token provided');
 			}

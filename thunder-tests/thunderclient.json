@@ -8,9 +8,13 @@
     "method": "GET",
     "sortNum": 10000,
     "created": "2023-01-12T11:21:19.888Z",
-    "modified": "2023-01-12T11:21:28.314Z",
+    "modified": "2023-01-14T02:13:52.166Z",
     "headers": [],
     "params": [],
+    "auth": {
+      "type": "bearer",
+      "bearer": "{{token}}"
+    },
     "tests": []
   },
   {
@@ -18,18 +22,17 @@
     "colId": "1e5a3aca-464c-4663-b8ca-b63a57838836",
     "containerId": "6027779d-525c-44b4-a78b-0250efb122f3",
     "name": "get communities",
-    "url": "{{host}}/api/classes",
+    "url": "{{host}}/api/communities",
     "method": "GET",
     "sortNum": 20000,
     "created": "2023-01-12T11:21:44.675Z",
-    "modified": "2023-01-13T09:50:37.395Z",
-    "headers": [
-      {
-        "name": "x-auth-token",
-        "value": "{{token}}"
-      }
-    ],
+    "modified": "2023-01-14T02:14:07.524Z",
+    "headers": [],
     "params": [],
+    "auth": {
+      "type": "bearer",
+      "bearer": "{{token}}"
+    },
     "tests": []
   },
   {
@@ -37,22 +40,21 @@
     "colId": "1e5a3aca-464c-4663-b8ca-b63a57838836",
     "containerId": "6027779d-525c-44b4-a78b-0250efb122f3",
     "name": "add community",
-    "url": "{{host}}/api/classes",
+    "url": "{{host}}/api/communities",
     "method": "POST",
     "sortNum": 30000,
     "created": "2023-01-12T11:22:01.840Z",
-    "modified": "2023-01-13T08:46:52.096Z",
-    "headers": [
-      {
-        "name": "x-auth-token",
-        "value": "{{token}}"
-      }
-    ],
+    "modified": "2023-01-14T02:14:16.358Z",
+    "headers": [],
     "params": [],
     "body": {
       "type": "json",
       "raw": "{\n  \"name\": \"FA 12.1\"\n}",
       "form": []
+    },
+    "auth": {
+      "type": "bearer",
+      "bearer": "{{token}}"
     },
     "tests": []
   },
@@ -61,22 +63,21 @@
     "colId": "1e5a3aca-464c-4663-b8ca-b63a57838836",
     "containerId": "6027779d-525c-44b4-a78b-0250efb122f3",
     "name": "update community",
-    "url": "{{host}}/api/classes/25c3b40c-88c9-4f39-883d-9fe6b556726c",
+    "url": "{{host}}/api/communities/25c3b40c-88c9-4f39-883d-9fe6b556726c",
     "method": "PUT",
     "sortNum": 40000,
     "created": "2023-01-12T12:03:24.673Z",
-    "modified": "2023-01-13T08:10:50.628Z",
-    "headers": [
-      {
-        "name": "x-auth-token",
-        "value": "{{token}}"
-      }
-    ],
+    "modified": "2023-01-14T02:14:25.194Z",
+    "headers": [],
     "params": [],
     "body": {
       "type": "json",
       "raw": "{\n  \"name\": \"FA 12.2\"\n}",
       "form": []
+    },
+    "auth": {
+      "type": "bearer",
+      "bearer": "{{token}}"
     },
     "tests": []
   },
@@ -85,18 +86,17 @@
     "colId": "1e5a3aca-464c-4663-b8ca-b63a57838836",
     "containerId": "6027779d-525c-44b4-a78b-0250efb122f3",
     "name": "delete community",
-    "url": "{{host}}/api/classes/0683f9de-687a-4a6d-8397-da3f5ebb3fc1",
+    "url": "{{host}}/api/communities/0683f9de-687a-4a6d-8397-da3f5ebb3fc1",
     "method": "DELETE",
     "sortNum": 50000,
     "created": "2023-01-13T08:03:46.737Z",
-    "modified": "2023-01-13T08:47:02.871Z",
-    "headers": [
-      {
-        "name": "x-auth-token",
-        "value": "{{token}}"
-      }
-    ],
+    "modified": "2023-01-14T02:14:32.696Z",
+    "headers": [],
     "params": [],
+    "auth": {
+      "type": "bearer",
+      "bearer": "{{token}}"
+    },
     "tests": []
   },
   {
@@ -104,22 +104,57 @@
     "colId": "1e5a3aca-464c-4663-b8ca-b63a57838836",
     "containerId": "6027779d-525c-44b4-a78b-0250efb122f3",
     "name": "create and add teacher to community",
-    "url": "{{host}}/api/classes/9d91bb10-3bce-4791-a518-509ee0f4ec5b/teachers",
+    "url": "{{host}}/api/communities/9d91bb10-3bce-4791-a518-509ee0f4ec5b/teachers",
     "method": "POST",
     "sortNum": 60000,
     "created": "2023-01-13T09:26:55.963Z",
-    "modified": "2023-01-13T09:57:34.291Z",
-    "headers": [
-      {
-        "name": "x-auth-token",
-        "value": "{{token}}"
-      }
-    ],
+    "modified": "2023-01-14T02:14:41.037Z",
+    "headers": [],
     "params": [],
     "body": {
       "type": "json",
       "raw": "{\n  \"name\": \"Martin Kreutzer\",\n  \"email\": \"m.kreutzer@schule.saarland\"\n}",
       "form": []
+    },
+    "auth": {
+      "type": "bearer",
+      "bearer": "{{token}}"
+    },
+    "tests": []
+  },
+  {
+    "_id": "ca2ea317-0c1e-41e9-b175-381840cab285",
+    "colId": "1e5a3aca-464c-4663-b8ca-b63a57838836",
+    "containerId": "67e3a16f-0b38-4cea-b90f-08e3456056e8",
+    "name": "get teachers",
+    "url": "{{host}}/api/teachers",
+    "method": "GET",
+    "sortNum": 70000,
+    "created": "2023-01-14T02:00:50.740Z",
+    "modified": "2023-01-14T02:08:16.654Z",
+    "headers": [],
+    "params": [],
+    "auth": {
+      "type": "bearer",
+      "bearer": "{{token}}"
+    },
+    "tests": []
+  },
+  {
+    "_id": "ba087e0a-f68f-4cce-a58f-51a3d08c9462",
+    "colId": "1e5a3aca-464c-4663-b8ca-b63a57838836",
+    "containerId": "67e3a16f-0b38-4cea-b90f-08e3456056e8",
+    "name": "get teacher",
+    "url": "{{host}}/api/teachers/7575e2f8-0fcc-4efe-9ba5-3add514f4326",
+    "method": "GET",
+    "sortNum": 80000,
+    "created": "2023-01-14T02:25:57.085Z",
+    "modified": "2023-01-14T02:26:33.481Z",
+    "headers": [],
+    "params": [],
+    "auth": {
+      "type": "bearer",
+      "bearer": "{{token}}"
     },
     "tests": []
   }

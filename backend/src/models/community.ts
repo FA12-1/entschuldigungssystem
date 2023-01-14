@@ -21,7 +21,17 @@ export class DBCommunity extends BaseEntity {
 	public name: string;
 
 	@ManyToMany(() => DBTeacher, (x) => x.communities)
-	@JoinTable()
+	@JoinTable({
+		name: 'community_teacher',
+		joinColumn: {
+			name: 'community',
+			referencedColumnName: 'id',
+		},
+		inverseJoinColumn: {
+			name: 'teacher',
+			referencedColumnName: 'id',
+		},
+	})
 	teachers: DBTeacher[];
 
 	@OneToMany(() => DBStudent, (x) => x.community)
