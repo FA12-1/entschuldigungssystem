@@ -1,32 +1,23 @@
-import { NextFunction, Response } from 'express';
 import { z } from 'zod';
 import { DBCommunity } from '../../../models/community';
 import { DBTeacher } from '../../../models/teacher';
-import { AuthRequest } from '../../../util';
+import { AuthController } from '../../../util';
 
-type Data = {
-	name: string;
-	email: string;
-};
-
-function validateData(data: Data) {
-	const schema = z.object({
-		name: z.string().max(100),
+const schema = z
+	.object({
+		firstName: z.string().max(50),
+		lastName: z.string().max(50),
 		email: z.string().email(),
-	});
+	})
+	.strict();
+type Data = z.infer<typeof schema>;
+const validate = (data: Data) => schema.parse(data);
 
-	return schema.parse(data);
-}
+type Params = { id: string };
 
-type Req = AuthRequest<{ id: string }, {}, Data>;
-
-export const createAndAddTeacherToCommunity = async (
-	req: Req,
-	res: Response,
-	next: NextFunction
-) => {
+export const createTeacherAddToCommunity: AuthController<Params, Data> = async (req, res, next) => {
 	try {
-		const data = validateData(req.body);
+		const data = validate(req.body);
 
 		// check if community exists
 		const community = await DBCommunity.findOne({

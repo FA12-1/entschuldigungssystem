@@ -3,26 +3,20 @@ import { DBCommunity } from '../../models/community';
 import { DBTeacher } from '../../models/teacher';
 import { AuthController, checkUuid } from '../../util';
 
-type Data = {
-	name: string;
-};
-
-function validateData(data: Data) {
-	const schema = z
-		.object({
-			name: z.string().max(20),
-		})
-		.strict();
-
-	return schema.parse(data);
-}
+const schema = z
+	.object({
+		name: z.string().max(20),
+	})
+	.strict();
+type Data = z.infer<typeof schema>;
+const validate = (data: Data) => schema.parse(data);
 
 type Params = { id: string };
 
 export const updateCommunity: AuthController<Params, Data> = async (req, res, next) => {
 	try {
 		checkUuid(req.params.id);
-		const data = validateData(req.body);
+		const data = validate(req.body);
 
 		// check if community exists
 		const community = await DBCommunity.findOneBy({ id: req.params.id });

@@ -2,7 +2,7 @@ import { Router } from 'express';
 import { getApiStatus } from './controllers/api/get-api-status';
 import { getCurrentUser } from './controllers/auth/get-current-user';
 import { addCommunity } from './controllers/communities/create-community';
-import { createAndAddTeacherToCommunity } from './controllers/communities/teachers/create-add-teacher';
+import { createTeacherAddToCommunity } from './controllers/communities/teachers/create-add-teacher';
 import { deleteCommunity } from './controllers/communities/delete-community';
 import { getCommunities } from './controllers/communities/get-communities';
 import { updateCommunity } from './controllers/communities/update-community';
@@ -28,7 +28,7 @@ api.get('/communities', auth('admin', 'teacher'), getCommunities);
 api.post('/communities', auth('admin'), addCommunity);
 api.put('/communities/:id', auth('admin', 'teacher'), updateCommunity);
 api.delete('/communities/:id', auth('admin'), deleteCommunity);
-api.post('/communities/:id/teachers', auth('admin'), createAndAddTeacherToCommunity);
+api.post('/communities/:id/teachers', auth('admin'), createTeacherAddToCommunity);
 api.post('/communities/:id/teachers/:teacherid', auth('admin'), addTeacherToCommunity);
 api.delete('/communities/:id/teachers/:teacherid', auth('admin'), removeTeacherFromCommunity);
 // teachers
