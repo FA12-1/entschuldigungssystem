@@ -5,7 +5,7 @@ import { AuthRequest } from '../../util';
 export const getTeachers = async (req: AuthRequest, res: Response, next: NextFunction) => {
 	try {
 		const teachers = await DBTeacher.find({
-			select: ['id', 'name', 'email'],
+			// select: ['id', 'name', 'email'],
 			order: { name: 'asc' },
 		});
 
