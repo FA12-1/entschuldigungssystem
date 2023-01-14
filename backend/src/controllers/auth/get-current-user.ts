@@ -17,7 +17,8 @@ export const getCurrentUser = async (req: AuthRequest, res: Response, next: Next
 		if (req.user instanceof DBAdmin) user.type = 'admin';
 
 		user.id = req.user.id;
-		user.name = req.user.name;
+		user.firstName = req.user.firstName;
+		user.lastName = req.user.lastName;
 		user.email = req.user.email;
 
 		return res.status(200).send(user);

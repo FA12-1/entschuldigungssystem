@@ -5,7 +5,8 @@ import { AuthRequest } from '../../util';
 
 const schema = z
 	.object({
-		name: z.string().max(100),
+		firstName: z.string().max(50),
+		lastName: z.string().max(50),
 		email: z.string().email(),
 	})
 	.strict();
@@ -19,9 +20,9 @@ export const createTeacher = async (req: Req, res: Response, next: NextFunction)
 		const data = validate(req.body);
 
 		// check if teacher already exists
-		const existingTeacher = await DBTeacher.findOneBy({ name: data.name });
+		const existingTeacher = await DBTeacher.findOneBy({ email: data.email });
 		if (existingTeacher) {
-			return res.status(400).send(`Teacher '${data.name}' already exists.`);
+			return res.status(400).send(`Teacher with email '${data.email}' already exists.`);
 		}
 
 		// create new teacher

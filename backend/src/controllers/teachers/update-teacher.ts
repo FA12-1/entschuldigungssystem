@@ -4,7 +4,8 @@ import { DBTeacher } from '../../models/teacher';
 import { AuthRequest } from '../../util';
 
 const schema = z.object({
-	name: z.string().max(100).optional(),
+	firstName: z.string().max(50).optional(),
+	lastName: z.string().max(50).optional(),
 	email: z.string().email().optional(),
 });
 type Data = z.infer<typeof schema>;

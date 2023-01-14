@@ -6,6 +6,7 @@ import { createAndAddTeacherToCommunity } from './controllers/communities/create
 import { deleteCommunity } from './controllers/communities/delete-community';
 import { getCommunities } from './controllers/communities/get-communities';
 import { updateCommunity } from './controllers/communities/update-community';
+import { getStudents } from './controllers/students/get-students';
 import { createTeacher } from './controllers/teachers/create-teacher';
 import { deleteTeacher } from './controllers/teachers/delete-teacher';
 import { getTeacher } from './controllers/teachers/get-teacher';
@@ -33,5 +34,7 @@ api.post('/teachers', auth('admin'), createTeacher);
 api.patch('/teachers/:id', auth('admin'), updateTeacher);
 api.patch('/teachers/:id/token', auth('admin'), updateTeacherToken);
 api.delete('/teachers/:id', auth('admin'), deleteTeacher);
+// students
+api.get('/students', auth('admin'), getStudents);
 
 export default api;

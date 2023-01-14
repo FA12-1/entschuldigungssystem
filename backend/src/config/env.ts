@@ -13,7 +13,8 @@ export const ENV = cleanEnv(process.env, {
 	DB_PASSWORD: str(),
 	DB_NAME: str(),
 	DB_LOGGING_ENABLED: bool({ default: false }),
-	ADMIN_TOKEN: str(),
+	ADMIN_FIRSTNAME: str({ default: 'Admin' }),
+	ADMIN_LASTNAME: str({ default: 'Admin' }),
 	ADMIN_EMAIL: str({ default: 'admin@example.com' }),
-	ADMIN_PASSWORD: str({ default: 'admin' }),
+	ADMIN_TOKEN: str({ default: '9335f4e7-6171-44d9-90cb-475f1685b05f' }),
 });

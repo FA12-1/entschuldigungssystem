@@ -27,10 +27,12 @@ export async function createInitialAdminAccount() {
 	// check if admin account already exists
 	const admin = await DBAdmin.findOne({ where: { email: ENV.ADMIN_EMAIL } });
 	if (!admin) {
-		const newAdmin = await DBAdmin.create({
-			name: 'Admin',
+		const newAdmin = DBAdmin.create({
+			firstName: ENV.ADMIN_FIRSTNAME,
+			lastName: ENV.ADMIN_LASTNAME,
 			email: ENV.ADMIN_EMAIL,
+			token: ENV.ADMIN_TOKEN,
 		});
-		newAdmin.save();
+		await newAdmin.save();
 	}
 }

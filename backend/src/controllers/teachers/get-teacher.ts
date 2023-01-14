@@ -13,7 +13,8 @@ export const getTeacher = async (req: Req, res: Response, next: NextFunction) =>
 			},
 			select: {
 				id: true,
-				name: true,
+				firstName: true,
+				lastName: true,
 				email: true,
 				communities: {
 					id: true,

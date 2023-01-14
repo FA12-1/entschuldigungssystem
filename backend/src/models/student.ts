@@ -19,9 +19,12 @@ export class DBStudent extends BaseEntity {
 	public token: string;
 
 	@Column()
-	public name: string;
+	public firstName: string;
 
 	@Column()
+	public lastName: string;
+
+	@Column({ type: 'date' })
 	public birthday: Date;
 
 	@Column({ unique: true })

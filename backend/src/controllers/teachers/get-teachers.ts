@@ -6,7 +6,7 @@ export const getTeachers = async (req: AuthRequest, res: Response, next: NextFun
 	try {
 		const teachers = await DBTeacher.find({
 			// select: ['id', 'name', 'email'],
-			order: { name: 'asc' },
+			order: { lastName: 'asc', firstName: 'asc' },
 		});
 
 		return res.status(200).send(teachers);

@@ -6,7 +6,10 @@ export class DBAdmin extends BaseEntity {
 	public readonly id: string;
 
 	@Column()
-	public name: string;
+	public firstName: string;
+
+	@Column()
+	public lastName: string;
 
 	@Column({ unique: true })
 	public email: string;

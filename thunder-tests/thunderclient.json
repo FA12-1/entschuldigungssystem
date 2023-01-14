@@ -257,5 +257,23 @@
       "bearer": "{{token}}"
     },
     "tests": []
+  },
+  {
+    "_id": "9444ef8c-3917-48e0-a26c-4d4bb41ba6fa",
+    "colId": "1e5a3aca-464c-4663-b8ca-b63a57838836",
+    "containerId": "d61e96bf-08b1-4cf7-b5ba-039a151739af",
+    "name": "get students",
+    "url": "{{host}}/api/students",
+    "method": "GET",
+    "sortNum": 140000,
+    "created": "2023-01-14T18:11:55.603Z",
+    "modified": "2023-01-14T18:12:08.692Z",
+    "headers": [],
+    "params": [],
+    "auth": {
+      "type": "bearer",
+      "bearer": "{{token}}"
+    },
+    "tests": []
   }
 ]
