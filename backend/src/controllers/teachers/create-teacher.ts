@@ -3,10 +3,12 @@ import { z } from 'zod';
 import { DBTeacher } from '../../models/teacher';
 import { AuthRequest } from '../../util';
 
-const schema = z.object({
-	name: z.string().max(100),
-	email: z.string().email(),
-});
+const schema = z
+	.object({
+		name: z.string().max(100),
+		email: z.string().email(),
+	})
+	.strict();
 type Data = z.infer<typeof schema>;
 const validate = (data: Data) => schema.parse(data);
 
