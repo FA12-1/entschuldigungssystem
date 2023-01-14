@@ -15,8 +15,9 @@
   - [ ] `/teachers`
     - [x] GET `/`: Get all teachers
     - [x] GET `/:id`: Get teacher including relational fields
-    - [ ] POST `/`: Add a teacher
-    - [ ] PUT `/:id`: Update teacher
+    - [x] POST `/`: Add a teacher
+    - [x] PATCH `/:id`: Update teacher
+    - [x] PATCH `/:id/token`: Update teacher token
     - [ ] DELETE `/:id`: Delete teacher
   - [ ] `/students`
     - [ ] GET `/`: Get all students with absences

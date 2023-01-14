@@ -8,6 +8,8 @@ import { updateCommunity } from './controllers/communities/update-community';
 import { createTeacher } from './controllers/teachers/create-teacher';
 import { getTeacher } from './controllers/teachers/get-teacher';
 import { getTeachers } from './controllers/teachers/get-teachers';
+import { updateTeacher } from './controllers/teachers/update-teacher';
+import { updateTeacherToken } from './controllers/teachers/update-teacher-token';
 import { auth } from './middleware/auth';
 
 const api = Router();
@@ -24,5 +26,7 @@ api.post('/communities/:id/teachers', auth('admin'), createAndAddTeacherToCommun
 api.get('/teachers', auth('admin'), getTeachers);
 api.get('/teachers/:id', auth('admin'), getTeacher);
 api.post('/teachers', auth('admin'), createTeacher);
+api.patch('/teachers/:id', auth('admin'), updateTeacher);
+api.patch('/teachers/:id/token', auth('admin'), updateTeacherToken);
 
 export default api;
