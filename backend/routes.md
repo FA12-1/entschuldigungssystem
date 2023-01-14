@@ -2,6 +2,8 @@
 
 - [ ] `/api`
   - [x] GET `/`: Get API status
+  - [x] `/auth`
+    - [x] GET `/me`: Get current users profile
   - [ ] `/communities`
     - [x] GET `/`: Get all communities if admin and own communities if teacher
     - [ ] GET `/:id`: Get community including relational fields
@@ -20,7 +22,8 @@
     - [x] PATCH `/:id/token`: Update teacher token
     - [x] DELETE `/:id`: Delete teacher
   - [ ] `/students`
-    - [ ] GET `/`: Get all students with absences
+    - [ ] GET `/`: Get all students
+    - [ ] GET `/`: Get student with relational data
     - [ ] PUT `/:id`: Update student
     - [ ] DELETE `/:id`: Delete student
   - [ ] `/absences`

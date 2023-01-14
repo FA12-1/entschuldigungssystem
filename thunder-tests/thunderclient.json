@@ -239,5 +239,23 @@
       "bearer": "{{token}}"
     },
     "tests": []
+  },
+  {
+    "_id": "6289f554-5592-435d-adab-8752b0dd7904",
+    "colId": "1e5a3aca-464c-4663-b8ca-b63a57838836",
+    "containerId": "79ed1c2e-804e-42e8-9dc7-6da181e26d72",
+    "name": "get current user",
+    "url": "{{host}}/api/auth/me",
+    "method": "GET",
+    "sortNum": 130000,
+    "created": "2023-01-14T17:41:40.709Z",
+    "modified": "2023-01-14T17:41:56.750Z",
+    "headers": [],
+    "params": [],
+    "auth": {
+      "type": "bearer",
+      "bearer": "{{token}}"
+    },
+    "tests": []
   }
 ]

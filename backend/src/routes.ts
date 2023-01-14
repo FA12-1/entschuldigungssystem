@@ -1,5 +1,6 @@
 import { Router } from 'express';
 import { getApiStatus } from './controllers/api/get-api-status';
+import { getCurrentUser } from './controllers/auth/get-current-user';
 import { addCommunity } from './controllers/communities/add-community';
 import { createAndAddTeacherToCommunity } from './controllers/communities/create-add-teacher';
 import { deleteCommunity } from './controllers/communities/delete-community';
@@ -17,6 +18,8 @@ const api = Router();
 
 // API
 api.get('/', getApiStatus);
+// Auth
+api.get('/auth/me', auth('admin', 'teacher', 'student'), getCurrentUser);
 // communities
 api.get('/communities', auth('admin', 'teacher'), getCommunities);
 api.post('/communities', auth('admin'), addCommunity);
