@@ -33,7 +33,7 @@ export const createTeacherAddToCommunity: AuthController<Params, Data> = async (
 		if (existingTeacher) {
 			return res.status(400).send(`Teacher with email '${data.email}' already exists.`);
 		}
-		const teacher = await DBTeacher.create({ ...data });
+		const teacher = DBTeacher.create({ ...data });
 		await teacher.save();
 
 		// add teacher to community
