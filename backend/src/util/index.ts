@@ -1,4 +1,4 @@
-import { Request } from 'express';
+import { NextFunction, Request, Response } from 'express';
 import { validate } from 'uuid';
 import { User } from '../models';
 import { ApiError } from '../types/error';
@@ -18,3 +18,15 @@ export type AuthRequest<
 > = Request<P, ResBody, ReqBody, ReqQuery, Locals> & {
 	user?: User;
 };
+
+export type Controller<P = {}, ReqBody = any, ReqQuery = qs.ParsedQs> = (
+	req: Request<P, {}, ReqBody, ReqQuery>,
+	res: Response,
+	next: NextFunction
+) => Promise<any> | any;
+
+export type AuthController<P = {}, ReqBody = any, ReqQuery = qs.ParsedQs> = (
+	req: AuthRequest<P, {}, ReqBody, ReqQuery>,
+	res: Response,
+	next: NextFunction
+) => Promise<any> | any;

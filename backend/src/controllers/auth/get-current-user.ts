@@ -1,10 +1,9 @@
 import { DBAdmin } from './../../models/admin';
 import { DBTeacher } from './../../models/teacher';
-import { NextFunction, Response } from 'express';
 import { DBStudent } from '../../models/student';
-import { AuthRequest } from '../../util';
+import { AuthController } from '../../util';
 
-export const getCurrentUser = async (req: AuthRequest, res: Response, next: NextFunction) => {
+export const getCurrentUser: AuthController = async (req, res, next) => {
 	try {
 		const user: any = {};
 

@@ -1,4 +1,4 @@
-import { NextFunction, Request, Response } from 'express';
+import { NextFunction, Response } from 'express';
 import { DBCommunity } from '../../models/community';
 import { DBTeacher } from '../../models/teacher';
 import { AuthRequest } from '../../util';
@@ -18,8 +18,20 @@ export async function getCommunities(req: AuthRequest, res: Response, next: Next
 		}
 
 		const communities = await DBCommunity.find({
+			relations: { teachers: true, students: true },
+			select: {
+				id: true,
+				name: true,
+				students: {
+					id: true,
+				},
+				teachers: {
+					id: true,
+					firstName: true,
+					lastName: true,
+				},
+			},
 			order: { name: 'asc' },
-			// relations: { teachers: true },
 		});
 		return res.status(200).send(communities);
 	} catch (err) {
