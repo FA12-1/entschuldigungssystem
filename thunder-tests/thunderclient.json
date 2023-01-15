@@ -311,5 +311,23 @@
       "bearer": "{{token}}"
     },
     "tests": []
+  },
+  {
+    "_id": "ada953f0-d619-46be-bdb0-095df3ad1759",
+    "colId": "1e5a3aca-464c-4663-b8ca-b63a57838836",
+    "containerId": "6027779d-525c-44b4-a78b-0250efb122f3",
+    "name": "get community",
+    "url": "{{host}}/api/communities/5ba9a930-0ba1-404b-93f6-f62f0bac2d82",
+    "method": "GET",
+    "sortNum": 25000,
+    "created": "2023-01-15T01:29:02.698Z",
+    "modified": "2023-01-15T02:15:55.735Z",
+    "headers": [],
+    "params": [],
+    "auth": {
+      "type": "bearer",
+      "bearer": "{{token}}"
+    },
+    "tests": []
   }
 ]

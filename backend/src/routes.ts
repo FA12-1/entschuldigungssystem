@@ -16,21 +16,27 @@ import { updateTeacherToken } from './controllers/teachers/update-teacher-token'
 import { auth } from './middleware/auth';
 import { addTeacherToCommunity } from './controllers/communities/teachers/add-teacher';
 import { removeTeacherFromCommunity } from './controllers/communities/teachers/remove-teacher';
+import { getCommunity } from './controllers/communities/get-community';
 
 const api = Router();
 
 // API
 api.get('/', getApiStatus);
-// Auth
+
+// auth
 api.get('/auth/me', auth('admin', 'teacher', 'student'), getCurrentUser);
+
 // communities
 api.get('/communities', auth('admin', 'teacher'), getCommunities);
+api.get('/communities/:id', auth('admin', 'teacher'), getCommunity);
 api.post('/communities', auth('admin'), addCommunity);
 api.put('/communities/:id', auth('admin', 'teacher'), updateCommunity);
 api.delete('/communities/:id', auth('admin'), deleteCommunity);
+// communities/teachers
 api.post('/communities/:id/teachers', auth('admin'), createTeacherAddToCommunity);
 api.post('/communities/:id/teachers/:teacherid', auth('admin'), addTeacherToCommunity);
 api.delete('/communities/:id/teachers/:teacherid', auth('admin'), removeTeacherFromCommunity);
+
 // teachers
 api.get('/teachers', auth('admin'), getTeachers);
 api.get('/teachers/:id', auth('admin'), getTeacher);
@@ -38,6 +44,7 @@ api.post('/teachers', auth('admin'), createTeacher);
 api.patch('/teachers/:id', auth('admin'), updateTeacher);
 api.patch('/teachers/:id/token', auth('admin'), updateTeacherToken);
 api.delete('/teachers/:id', auth('admin'), deleteTeacher);
+
 // students
 api.get('/students', auth('admin'), getStudents);
 

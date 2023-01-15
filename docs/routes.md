@@ -6,7 +6,7 @@
     - [x] GET `/me`: Get current users profile
   - [ ] `/communities`
     - [x] GET `/`: Get all communities if admin and own communities if teacher
-    - [ ] GET `/:id`: Get community including relational fields
+    - [x] GET `/:id`: Get community including relational fields
     - [x] POST `/`: Add a community
     - [x] PUT `/:id`: Update a community
     - [x] DELETE `/:id`: Delete a community
@@ -25,6 +25,7 @@
     - [ ] GET `/`: Get all students
     - [ ] GET `/`: Get student with relational data
     - [ ] PUT `/:id`: Update student
+    - [ ] PATCH `/:id/token`: Update student token
     - [ ] DELETE `/:id`: Delete student
   - [ ] `/absences`
     - [ ] GET `/` Get all absences (filter)
