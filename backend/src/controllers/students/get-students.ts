@@ -4,6 +4,12 @@ import { AuthController } from '../../util';
 export const getStudents: AuthController = async (req, res, next) => {
 	try {
 		const students = await DBStudent.find({
+			select: {
+				id: true,
+				firstName: true,
+				lastName: true,
+				email: true,
+			},
 			order: { lastName: 'asc', firstName: 'asc' },
 		});
 

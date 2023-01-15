@@ -18,6 +18,7 @@ import { auth } from './middleware/auth';
 import { addTeacherToCommunity } from './controllers/communities/teachers/add-teacher';
 import { removeTeacherFromCommunity } from './controllers/communities/teachers/remove-teacher';
 import { getCommunity } from './controllers/communities/get-community';
+import { getStudent } from './controllers/students/get-student';
 
 const api = Router();
 
@@ -47,7 +48,8 @@ api.patch('/teachers/:id/token', auth('admin'), updateTeacherToken);
 api.delete('/teachers/:id', auth('admin'), deleteTeacher);
 
 // students
-api.get('/students', auth('admin'), getStudents);
+api.get('/students', auth('admin', 'teacher'), getStudents);
+api.get('/students/:id', auth('admin', 'teacher'), getStudent);
 api.post('/students', auth('admin', 'teacher'), createStudent);
 
 export default api;

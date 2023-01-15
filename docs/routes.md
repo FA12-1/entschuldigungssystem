@@ -14,7 +14,7 @@
     - [x] POST `/:id/teachers/:id`: Add existing teacher to a community
     - [x] DELETE `/:id/teachers/:id`: Remove teacher from community
     - [ ] POST `/:id/students`: Add student to community
-  - [ ] `/teachers`
+  - [x] `/teachers`
     - [x] GET `/`: Get all teachers
     - [x] GET `/:id`: Get teacher including relational fields
     - [x] POST `/`: Add a teacher
@@ -22,9 +22,9 @@
     - [x] PATCH `/:id/token`: Update teacher token
     - [x] DELETE `/:id`: Delete teacher
   - [ ] `/students`
-    - [ ] GET `/`: Get all students
-    - [ ] GET `/`: Get student with relational data
-    - [ ] POST `/`: Create a student
+    - [x] GET `/`: Get all students
+    - [x] GET `/`: Get student with relational data
+    - [x] POST `/`: Create a student
     - [ ] PATCH `/:id`: Update student (including community ID)
     - [ ] PATCH `/:id/token`: Update student token
     - [ ] DELETE `/:id`: Delete student

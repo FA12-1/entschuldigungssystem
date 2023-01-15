@@ -1,6 +1,7 @@
 import { FindOneOptions } from 'typeorm';
 import { checkUuid } from '.';
 import { DBCommunity } from '../models/community';
+import { DBStudent } from '../models/student';
 import { DBTeacher } from '../models/teacher';
 import { ApiError } from '../types/error';
 
@@ -26,10 +27,20 @@ export const findCommunity = async (
 		},
 		select: {
 			teachers: withTeachers
-				? { id: true, firstName: true, lastName: true, token: withTokens }
+				? {
+						id: true,
+						firstName: true,
+						lastName: true,
+						token: withTokens,
+				  }
 				: false,
 			students: withStudents
-				? { id: true, firstName: true, lastName: true, token: withTokens }
+				? {
+						id: true,
+						firstName: true,
+						lastName: true,
+						token: withTokens,
+				  }
 				: false,
 			...options?.select,
 		},
@@ -72,7 +83,12 @@ export const findTeacher = async (
 			lastName: true,
 			email: true,
 			token: withTokens,
-			communities: withCommunities ? { id: true, name: true } : false,
+			communities: withCommunities
+				? {
+						id: true,
+						name: true,
+				  }
+				: false,
 			...options?.select,
 		},
 		order: {
@@ -89,4 +105,59 @@ export const findTeacher = async (
 	}
 
 	return teacher;
+};
+
+type FindStudentProps = {
+	id: string;
+	withCommunity?: boolean;
+	withAbsences?: boolean;
+	withToken?: boolean;
+};
+export const findStudent = async (
+	props: FindStudentProps,
+	options?: FindOneOptions<DBStudent>
+): Promise<DBStudent> => {
+	const { id, withCommunity, withAbsences, withToken } = props;
+	checkUuid(id);
+
+	const student = await DBStudent.findOne({
+		where: { id, ...options?.where },
+		relations: {
+			community: withCommunity,
+			absences: withAbsences,
+			...options?.relations,
+		},
+		select: {
+			id: true,
+			firstName: true,
+			lastName: true,
+			email: true,
+			birthday: true,
+			token: withToken,
+			community: withCommunity
+				? {
+						id: true,
+						name: true,
+				  }
+				: undefined,
+			absences: withAbsences
+				? {
+						id: true,
+						startDate: true,
+						endDate: true,
+						type: true,
+						status: true,
+				  }
+				: false,
+			...options?.select,
+		},
+		order: { lastName: 'asc', firstName: 'asc', ...options?.order },
+		...options,
+	});
+
+	if (!student) {
+		throw new ApiError(404, `Student with ID '${id}' does not exist.`);
+	}
+
+	return student;
 };
