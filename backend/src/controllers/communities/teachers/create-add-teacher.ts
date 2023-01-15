@@ -1,7 +1,7 @@
 import { z } from 'zod';
-import { DBCommunity } from '../../../models/community';
 import { DBTeacher } from '../../../models/teacher';
 import { AuthController } from '../../../util';
+import { findCommunity } from '../../../util/data';
 
 const schema = z
 	.object({
@@ -20,13 +20,7 @@ export const createTeacherAddToCommunity: AuthController<Params, Data> = async (
 		const data = validate(req.body);
 
 		// check if community exists
-		const community = await DBCommunity.findOne({
-			where: { id: req.params.id },
-			relations: { teachers: true },
-		});
-		if (!community) {
-			return res.status(400).send(`Class with ID '${req.params.id}' does not exist.`);
-		}
+		const community = await findCommunity({ id: req.params.id, withTeachers: true });
 
 		// create teacher
 		const existingTeacher = await DBTeacher.findOneBy({ email: data.email });

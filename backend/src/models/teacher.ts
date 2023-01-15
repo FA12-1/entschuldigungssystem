@@ -10,6 +10,8 @@ import { DBCommunity } from './community';
 
 @Entity()
 export class DBTeacher extends BaseEntity {
+	public readonly type: 'teacher';
+
 	@PrimaryGeneratedColumn('uuid')
 	public readonly id: string;
 

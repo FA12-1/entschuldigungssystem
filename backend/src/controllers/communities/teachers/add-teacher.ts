@@ -1,5 +1,4 @@
-import { DBTeacher } from '../../../models/teacher';
-import { DBCommunity } from '../../../models/community';
+import { findCommunity, findTeacher } from './../../../util/data';
 import { AuthController } from '../../../util';
 
 type Params = {
@@ -12,22 +11,14 @@ export const addTeacherToCommunity: AuthController<Params> = async (req, res, ne
 		const { id, teacherid } = req.params;
 
 		// find community
-		const community = await DBCommunity.findOne({
-			where: { id: id },
-			relations: { teachers: true },
-		});
-		if (!community) {
-			return res.status(404).send(`Community with ID '${id}' does not exist.`);
-		}
+		const community = await findCommunity({ id, withTeachers: true });
 
 		// find teacher
-		const teacher = await DBTeacher.findOne({
-			where: { id: teacherid },
-			relations: { communities: true },
+		const teacher = await findTeacher({
+			id: teacherid,
+			withCommunities: true,
+			withTokens: req.user?.type === 'admin',
 		});
-		if (!teacher) {
-			return res.status(404).send(`Teacher with ID '${teacherid}' does not exist.`);
-		}
 
 		// add teacher to community
 		community.teachers.push(teacher);

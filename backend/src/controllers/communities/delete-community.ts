@@ -1,20 +1,20 @@
-import { DBCommunity } from '../../models/community';
-import { AuthController, checkUuid } from '../../util';
+import { AuthController } from '../../util';
+import { findCommunity } from '../../util/data';
 
-type Params = { id: string };
+type Params = {
+	id: string;
+};
 
 export const deleteCommunity: AuthController<Params> = async (req, res, next) => {
 	try {
-		checkUuid(req.params.id);
+		const { id } = req.params;
 
-		// check if community exists
-		const community = await DBCommunity.findOneBy({ id: req.params.id });
-		if (!community) {
-			return res.status(400).send(`Community with ID '${req.params.id}' does not exist.`);
-		}
+		// find community
+		const community = await findCommunity({ id });
+		await community.remove();
 
-		await DBCommunity.delete({ id: req.params.id });
-		return res.status(200).send('OK');
+		// await DBCommunity.delete({ id: req.params.id });
+		return res.status(200).send(community.id);
 	} catch (err) {
 		return next(err);
 	}

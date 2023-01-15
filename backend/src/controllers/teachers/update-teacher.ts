@@ -1,6 +1,6 @@
 import { z } from 'zod';
-import { DBTeacher } from '../../models/teacher';
 import { AuthController } from '../../util';
+import { findTeacher } from '../../util/data';
 
 const schema = z
 	.object({
@@ -16,13 +16,15 @@ type Params = { id: string };
 
 export const updateTeacher: AuthController<Params, Data> = async (req, res, next) => {
 	try {
+		const { id } = req.params;
 		const data = validate(req.body);
 
 		// check if teacher exists
-		const teacher = await DBTeacher.findOne({ where: { id: req.params.id } });
-		if (!teacher) {
-			return res.status(404).send(`Teacher with ID '${req.params.id}' does not exist.`);
-		}
+		const teacher = await findTeacher({
+			id,
+			withCommunities: true,
+			withTokens: req.user?.type === 'admin',
+		});
 
 		// update teacher
 		Object.assign(teacher, data);

@@ -1,6 +1,6 @@
-import { DBCommunity } from '../../../models/community';
-import { DBTeacher } from '../../../models/teacher';
+import { findTeacher } from './../../../util/data';
 import { AuthController } from '../../../util';
+import { findCommunity } from '../../../util/data';
 
 type Params = {
 	id: string;
@@ -12,29 +12,17 @@ export const removeTeacherFromCommunity: AuthController<Params> = async (req, re
 		const { id, teacherid } = req.params;
 
 		// find community
-		const community = await DBCommunity.findOne({
-			where: { id: id },
-			relations: { teachers: true },
-		});
-		if (!community) {
-			return res.status(404).send(`Community with ID '${id}' does not exist.`);
-		}
+		const community = await findCommunity({ id, withTeachers: true });
 
 		// find teacher
-		const teacher = await DBTeacher.findOne({
-			where: { id: teacherid },
-			relations: { communities: true },
-		});
-		if (!teacher) {
-			return res.status(404).send(`Teacher with ID '${teacherid}' does not exist.`);
-		}
+		const teacher = await findTeacher({ id: teacherid });
 
 		// remove teacher from community
 		community.teachers = community.teachers.filter((x) => x.id !== teacher.id);
 		await community.save();
 
 		// return updated community
-		return res.status(200).send(community);
+		return res.status(200).send(teacherid);
 	} catch (err) {
 		return next(err);
 	}

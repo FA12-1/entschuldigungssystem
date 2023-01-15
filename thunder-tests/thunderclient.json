@@ -63,11 +63,11 @@
     "colId": "1e5a3aca-464c-4663-b8ca-b63a57838836",
     "containerId": "6027779d-525c-44b4-a78b-0250efb122f3",
     "name": "update community",
-    "url": "{{host}}/api/communities/25c3b40c-88c9-4f39-883d-9fe6b556726c",
+    "url": "{{host}}/api/communities/5ba9a930-0ba1-404b-93f6-f62f0bac2d82",
     "method": "PUT",
     "sortNum": 40000,
     "created": "2023-01-12T12:03:24.673Z",
-    "modified": "2023-01-14T02:14:25.194Z",
+    "modified": "2023-01-15T02:46:09.334Z",
     "headers": [],
     "params": [],
     "body": {
@@ -167,12 +167,12 @@
     "method": "POST",
     "sortNum": 90000,
     "created": "2023-01-14T02:33:29.392Z",
-    "modified": "2023-01-14T18:31:16.887Z",
+    "modified": "2023-01-15T03:23:59.541Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"firstName\": \"Martin\",\n  \"lastName\": \"Kreutzer\",\n  \"email\": \"m.kreutzer@schule.saarland\"\n}",
+      "raw": "{\n  \"firstName\": \"Teacher\",\n  \"lastName\": \"1\",\n  \"email\": \"a.4@x.com\",\n  \"community\": \"5ba9a930-0ba1-404b-93f6-f62f0bac2d82\"\n}",
       "form": []
     },
     "auth": {
@@ -227,11 +227,11 @@
     "colId": "1e5a3aca-464c-4663-b8ca-b63a57838836",
     "containerId": "67e3a16f-0b38-4cea-b90f-08e3456056e8",
     "name": "delete teacher",
-    "url": "{{host}}/api/teachers/9cdf39d1-2162-4d1b-ac6e-4aa4e580a879",
+    "url": "{{host}}/api/teachers/e2c4557c-e56e-4441-bebb-28dd3fa8e4ed",
     "method": "DELETE",
     "sortNum": 120000,
     "created": "2023-01-14T03:04:55.940Z",
-    "modified": "2023-01-14T18:31:32.676Z",
+    "modified": "2023-01-15T03:19:37.254Z",
     "headers": [],
     "params": [],
     "auth": {

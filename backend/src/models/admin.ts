@@ -2,6 +2,8 @@ import { BaseEntity, Column, Entity, PrimaryGeneratedColumn, UpdateDateColumn } 
 
 @Entity()
 export class DBAdmin extends BaseEntity {
+	public readonly type: 'admin';
+
 	@PrimaryGeneratedColumn('uuid')
 	public readonly id: string;
 

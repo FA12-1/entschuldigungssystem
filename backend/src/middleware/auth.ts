@@ -1,6 +1,9 @@
+import { DBAdmin } from './../models/admin';
 import { NextFunction, Response } from 'express';
+import { DBTeacher } from '../models/teacher';
 import { AuthRequest } from '../util';
 import { AuthType, findUserByToken } from '../util/auth';
+import { DBStudent } from '../models/student';
 
 export const auth =
 	(...types: AuthType[]) =>

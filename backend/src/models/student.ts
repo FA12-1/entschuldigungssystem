@@ -12,6 +12,8 @@ import { DBCommunity } from './community';
 
 @Entity()
 export class DBStudent extends BaseEntity {
+	public readonly type: 'student';
+
 	@PrimaryGeneratedColumn('uuid')
 	public readonly id: string;
 

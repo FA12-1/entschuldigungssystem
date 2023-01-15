@@ -24,7 +24,7 @@
   - [ ] `/students`
     - [ ] GET `/`: Get all students
     - [ ] GET `/`: Get student with relational data
-    - [ ] PUT `/:id`: Update student
+    - [ ] PATCH `/:id`: Update student (including community ID)
     - [ ] PATCH `/:id/token`: Update student token
     - [ ] DELETE `/:id`: Delete student
   - [ ] `/absences`

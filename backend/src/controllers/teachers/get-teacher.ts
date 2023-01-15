@@ -1,30 +1,14 @@
-import { DBTeacher } from '../../models/teacher';
+import { findTeacher } from './../../util/data';
 import { AuthController } from '../../util';
 
 type Params = { id: string };
 
 export const getTeacher: AuthController<Params> = async (req, res, next) => {
 	try {
-		const teacher = await DBTeacher.findOne({
-			where: { id: req.params.id },
-			relations: {
-				communities: true,
-			},
-			select: {
-				id: true,
-				firstName: true,
-				lastName: true,
-				email: true,
-				communities: {
-					id: true,
-					name: true,
-				},
-			},
-			order: {
-				communities: {
-					name: 'asc',
-				},
-			},
+		const teacher = await findTeacher({
+			id: req.params.id,
+			withCommunities: true,
+			withTokens: req.user?.type === 'admin',
 		});
 
 		return res.status(200).send(teacher);

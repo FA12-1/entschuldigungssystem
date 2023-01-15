@@ -1,16 +1,19 @@
+import { findTeacher } from './../../util/data';
 import { v4 as uuidv4 } from 'uuid';
-import { DBTeacher } from '../../models/teacher';
 import { AuthController } from '../../util';
 
 type Params = { id: string };
 
 export const updateTeacherToken: AuthController<Params> = async (req, res, next) => {
 	try {
+		const { id } = req.params;
+
 		// check if teacher exists
-		const teacher = await DBTeacher.findOne({ where: { id: req.params.id } });
-		if (!teacher) {
-			return res.status(404).send(`Teacher with ID '${req.params.id}' does not exist.`);
-		}
+		const teacher = await findTeacher({
+			id,
+			withCommunities: true,
+			withTokens: req.user?.type === 'admin',
+		});
 
 		// update teacher
 		teacher.token = uuidv4();
