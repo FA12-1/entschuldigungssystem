@@ -36,6 +36,7 @@ export const createStudent: AuthController<{}, Data> = async (req, res, next) =>
 			);
 		}
 
+		// save student to database
 		await newStudent.save();
 
 		return res.status(201).send(newStudent);

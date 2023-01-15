@@ -37,6 +37,7 @@ export const createTeacher: AuthController<{}, Data> = async (req, res, next) =>
 			newTeacher.communities.push(community);
 		}
 
+		// save teacher to database
 		await newTeacher.save();
 
 		return res.status(201).send(newTeacher);
