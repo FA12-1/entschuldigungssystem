@@ -86,11 +86,11 @@
     "colId": "1e5a3aca-464c-4663-b8ca-b63a57838836",
     "containerId": "6027779d-525c-44b4-a78b-0250efb122f3",
     "name": "delete community",
-    "url": "{{host}}/api/communities/0683f9de-687a-4a6d-8397-da3f5ebb3fc1",
+    "url": "{{host}}/api/communities/4063dcc8-8142-4630-a1d1-98a944b42763",
     "method": "DELETE",
     "sortNum": 50000,
     "created": "2023-01-13T08:03:46.737Z",
-    "modified": "2023-01-14T02:14:32.696Z",
+    "modified": "2023-01-15T03:30:21.534Z",
     "headers": [],
     "params": [],
     "auth": {
@@ -321,7 +321,7 @@
     "method": "GET",
     "sortNum": 25000,
     "created": "2023-01-15T01:29:02.698Z",
-    "modified": "2023-01-15T02:15:55.735Z",
+    "modified": "2023-01-15T03:30:55.416Z",
     "headers": [],
     "params": [],
     "auth": {

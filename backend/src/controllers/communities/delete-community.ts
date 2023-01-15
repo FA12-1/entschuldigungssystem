@@ -13,8 +13,7 @@ export const deleteCommunity: AuthController<Params> = async (req, res, next) =>
 		const community = await findCommunity({ id });
 		await community.remove();
 
-		// await DBCommunity.delete({ id: req.params.id });
-		return res.status(200).send(community.id);
+		return res.status(200).send(id);
 	} catch (err) {
 		return next(err);
 	}
