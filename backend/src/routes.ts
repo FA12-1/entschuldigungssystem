@@ -1,3 +1,4 @@
+import { createStudent } from './controllers/students/create-student';
 import { Router } from 'express';
 import { getApiStatus } from './controllers/api/get-api-status';
 import { getCurrentUser } from './controllers/auth/get-current-user';
@@ -47,5 +48,6 @@ api.delete('/teachers/:id', auth('admin'), deleteTeacher);
 
 // students
 api.get('/students', auth('admin'), getStudents);
+api.post('/students', auth('admin', 'teacher'), createStudent);
 
 export default api;

@@ -329,5 +329,28 @@
       "bearer": "{{token}}"
     },
     "tests": []
+  },
+  {
+    "_id": "3c48670a-11b6-4b2b-9e2b-f199a6fc5694",
+    "colId": "1e5a3aca-464c-4663-b8ca-b63a57838836",
+    "containerId": "d61e96bf-08b1-4cf7-b5ba-039a151739af",
+    "name": "create student",
+    "url": "{{host}}/api/students",
+    "method": "POST",
+    "sortNum": 180000,
+    "created": "2023-01-15T22:30:53.892Z",
+    "modified": "2023-01-15T22:35:21.990Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"firstName\": \"Tobias\",\n  \"lastName\": \"Wälde\",\n  \"email\": \"tobias.waelde@gmail.com\",\n  \"birthday\": \"1998-11-20T00:00:00Z\",\n  \"community\": \"5ba9a930-0ba1-404b-93f6-f62f0bac2d82\"\n}",
+      "form": []
+    },
+    "auth": {
+      "type": "bearer",
+      "bearer": "{{token}}"
+    },
+    "tests": []
   }
 ]
