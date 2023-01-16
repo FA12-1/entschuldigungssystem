@@ -1,5 +1,6 @@
 files/
 logs/
+.nyc_output/
 
 *.env*.local
 

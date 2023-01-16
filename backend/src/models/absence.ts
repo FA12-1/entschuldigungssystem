@@ -2,7 +2,7 @@ import { BaseEntity, Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 't
 import { AbsenceStatus, AbsenceType } from '../types/absence';
 import { DBStudent } from './student';
 
-@Entity({ name: 'absence' })
+@Entity()
 export class DBAbsence extends BaseEntity {
 	@PrimaryGeneratedColumn('uuid')
 	public readonly id: string;

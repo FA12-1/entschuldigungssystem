@@ -2,6 +2,8 @@ import {
 	BaseEntity,
 	Column,
 	Entity,
+	JoinColumn,
+	JoinTable,
 	ManyToMany,
 	OneToMany,
 	PrimaryGeneratedColumn,
@@ -10,18 +12,19 @@ import {
 import { DBStudent } from './student';
 import { DBTeacher } from './teacher';
 
-@Entity({ name: 'class' })
-export class DBClass extends BaseEntity {
+@Entity()
+export class DBCommunity extends BaseEntity {
 	@PrimaryGeneratedColumn('uuid')
 	public readonly id: string;
 
 	@Column({ unique: true })
 	public name: string;
 
-	@ManyToMany(() => DBTeacher, (x) => x.classes)
+	@ManyToMany(() => DBTeacher, (x) => x.communities)
+	@JoinTable()
 	teachers: DBTeacher[];
 
-	@OneToMany(() => DBStudent, (x) => x.class)
+	@OneToMany(() => DBStudent, (x) => x.community)
 	public students: DBStudent[];
 
 	@UpdateDateColumn()

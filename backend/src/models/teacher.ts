@@ -2,28 +2,30 @@ import {
 	BaseEntity,
 	Column,
 	Entity,
+	JoinTable,
 	ManyToMany,
 	PrimaryGeneratedColumn,
 	UpdateDateColumn,
 } from 'typeorm';
-import { DBClass } from './class';
+import { DBCommunity } from './community';
 
-@Entity({ name: 'teacher' })
+@Entity()
 export class DBTeacher extends BaseEntity {
 	@PrimaryGeneratedColumn('uuid')
 	public readonly id: string;
 
 	@Column()
-	name: string;
+	public name: string;
 
 	@Column({ unique: true })
-	email: string;
+	public email: string;
 
 	@Column({ generated: 'uuid', unique: true })
 	public token: string;
 
-	@ManyToMany(() => DBClass, (x) => x.teachers)
-	classes: DBClass[];
+	@ManyToMany(() => DBCommunity, (x) => x.teachers)
+	@JoinTable()
+	public communities: DBCommunity[];
 
 	@UpdateDateColumn()
 	public updatedAt: Date;

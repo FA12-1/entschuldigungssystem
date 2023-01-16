@@ -8,9 +8,9 @@ import {
 	UpdateDateColumn,
 } from 'typeorm';
 import { DBAbsence } from './absence';
-import { DBClass } from './class';
+import { DBCommunity } from './community';
 
-@Entity({ name: 'student' })
+@Entity()
 export class DBStudent extends BaseEntity {
 	@PrimaryGeneratedColumn('uuid')
 	public readonly id: string;
@@ -27,8 +27,8 @@ export class DBStudent extends BaseEntity {
 	@Column({ unique: true })
 	public email: string;
 
-	@ManyToOne(() => DBClass, (x) => x.students)
-	public class: DBClass;
+	@ManyToOne(() => DBCommunity, (x) => x.students)
+	public community: DBCommunity;
 
 	@OneToMany(() => DBAbsence, (x) => x.student)
 	public absences: DBAbsence[];

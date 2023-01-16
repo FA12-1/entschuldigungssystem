@@ -17,16 +17,16 @@
     "_id": "2a60272e-e8f6-4819-9317-e59ed62c254a",
     "colId": "1e5a3aca-464c-4663-b8ca-b63a57838836",
     "containerId": "6027779d-525c-44b4-a78b-0250efb122f3",
-    "name": "get classes",
+    "name": "get communities",
     "url": "{{host}}/api/classes",
     "method": "GET",
     "sortNum": 20000,
     "created": "2023-01-12T11:21:44.675Z",
-    "modified": "2023-01-13T07:02:32.565Z",
+    "modified": "2023-01-13T09:50:37.395Z",
     "headers": [
       {
         "name": "x-auth-token",
-        "value": "dfabdc8a-9036-4557-9590-7bc3cde2ac96"
+        "value": "{{token}}"
       }
     ],
     "params": [],
@@ -36,13 +36,18 @@
     "_id": "316b04b5-783b-4319-a2d6-54855affb462",
     "colId": "1e5a3aca-464c-4663-b8ca-b63a57838836",
     "containerId": "6027779d-525c-44b4-a78b-0250efb122f3",
-    "name": "add class",
+    "name": "add community",
     "url": "{{host}}/api/classes",
     "method": "POST",
     "sortNum": 30000,
     "created": "2023-01-12T11:22:01.840Z",
-    "modified": "2023-01-12T11:42:24.243Z",
-    "headers": [],
+    "modified": "2023-01-13T08:46:52.096Z",
+    "headers": [
+      {
+        "name": "x-auth-token",
+        "value": "{{token}}"
+      }
+    ],
     "params": [],
     "body": {
       "type": "json",
@@ -55,22 +60,65 @@
     "_id": "9cb37365-ab6f-4f32-a7c6-7eca098d9fcb",
     "colId": "1e5a3aca-464c-4663-b8ca-b63a57838836",
     "containerId": "6027779d-525c-44b4-a78b-0250efb122f3",
-    "name": "update class",
+    "name": "update community",
     "url": "{{host}}/api/classes/25c3b40c-88c9-4f39-883d-9fe6b556726c",
     "method": "PUT",
     "sortNum": 40000,
     "created": "2023-01-12T12:03:24.673Z",
-    "modified": "2023-01-13T07:27:42.642Z",
+    "modified": "2023-01-13T08:10:50.628Z",
     "headers": [
       {
         "name": "x-auth-token",
-        "value": "dfabdc8a-9036-4557-9590-7bc3cde2ac96"
+        "value": "{{token}}"
       }
     ],
     "params": [],
     "body": {
       "type": "json",
       "raw": "{\n  \"name\": \"FA 12.2\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "4a133a6b-7c0e-49f9-9ea2-f0a4ccd40c11",
+    "colId": "1e5a3aca-464c-4663-b8ca-b63a57838836",
+    "containerId": "6027779d-525c-44b4-a78b-0250efb122f3",
+    "name": "delete community",
+    "url": "{{host}}/api/classes/0683f9de-687a-4a6d-8397-da3f5ebb3fc1",
+    "method": "DELETE",
+    "sortNum": 50000,
+    "created": "2023-01-13T08:03:46.737Z",
+    "modified": "2023-01-13T08:47:02.871Z",
+    "headers": [
+      {
+        "name": "x-auth-token",
+        "value": "{{token}}"
+      }
+    ],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "c3f08c24-3596-48e7-b3f3-a9c9688c95a0",
+    "colId": "1e5a3aca-464c-4663-b8ca-b63a57838836",
+    "containerId": "6027779d-525c-44b4-a78b-0250efb122f3",
+    "name": "create and add teacher to community",
+    "url": "{{host}}/api/classes/9d91bb10-3bce-4791-a518-509ee0f4ec5b/teachers",
+    "method": "POST",
+    "sortNum": 60000,
+    "created": "2023-01-13T09:26:55.963Z",
+    "modified": "2023-01-13T09:57:34.291Z",
+    "headers": [
+      {
+        "name": "x-auth-token",
+        "value": "{{token}}"
+      }
+    ],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\": \"Martin Kreutzer\",\n  \"email\": \"m.kreutzer@schule.saarland\"\n}",
       "form": []
     },
     "tests": []
