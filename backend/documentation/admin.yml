@@ -1,0 +1,173 @@
+openapi: '3.0.2'
+info:
+  title: Admin
+  version: '1.0'
+paths:
+  /admins:
+    get:
+      tags:
+        - Admins
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  title: Admin
+                  required:
+                    - name
+                    - email
+                  additionalProperties: false
+                  properties:
+                    id:
+                      type: integer
+                      example: 12
+                      description: Incremental value for identifying the object.
+                    name:
+                      type: string
+                      example: School Principal
+                      description: Name of the admin
+                    email:
+                      type: string
+                      example: john.doe@test.com
+                      description: E-Mail of the admin
+                    lastUpdated:
+                      type: number
+                      example: 1673434584134
+                      description: UTC Timestamp
+        401:
+          description: Not authorized
+        404:
+          description: Not Found
+
+    post:
+      tags:
+        - Admins
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              title: Admin
+              required:
+                - name
+                - email
+              additionalProperties: false
+              properties:
+                name:
+                  type: string
+                  example: School Principal
+                  description: Name of the admin
+                email:
+                  type: string
+                  example: john.doe@test.com
+                  description: E-Mail of the admin
+                password:
+                  type: string
+                  example: Passwort123
+                  description: Obviously a password
+
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                title: Admin
+                properties:
+                  id:
+                    type: integer
+                    example: 12
+                    description: Incremental value for identifying the object.
+                  name:
+                    type: string
+                    example: School Principal
+                    description: Name of the admin
+                  email:
+                    type: string
+                    example: john.doe@test.com
+                    description: E-Mail of the admin
+                  lastUpdated:
+                    type: number
+                    example: 1673434584134
+                    description: UTC Timestamp
+        401:
+          description: Not authorized
+        404:
+          description: Not Found
+
+  /admins/{adminId}:
+    put:
+      tags:
+        - Admins
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              title: Admin
+              required:
+                - name
+                - email
+              additionalProperties: false
+              properties:
+                name:
+                  type: string
+                  example: School Principal
+                  description: Name of the admin
+                email:
+                  type: string
+                  example: john.doe@test.com
+                  description: E-Mail of the admin
+
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                title: Admin
+                properties:
+                  id:
+                    type: integer
+                    example: 12
+                    description: Incremental value for identifying the object.
+                  name:
+                    type: string
+                    example: School Principal
+                    description: Name of the admin
+                  email:
+                    type: string
+                    example: john.doe@test.com
+                    description: E-Mail of the admin
+                  lastUpdated:
+                    type: number
+                    example: 1673434584134
+                    description: UTC Timestamp
+        401:
+          description: Not authorized
+        404:
+          description: Not Found
+    delete:
+      tags:
+        - Admins
+      parameters:
+        - in: path
+          name: adminId
+          schema:
+            type: integer
+            example: 12
+          required: true
+          description: ID of the Admin
+      responses:
+        200:
+          description: OK
+        401:
+          description: Not authorized
+        404:
+          description: Not Found
