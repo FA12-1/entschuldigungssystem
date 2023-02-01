@@ -5,3 +5,6 @@ logs/
 *.env*.local
 
 node_modules/
+
+# Tests
+.nyc_output
