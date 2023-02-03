@@ -1,6 +1,6 @@
 import { Grid, TextField, Button, Checkbox, FormGroup, FormControl, FormControlLabel, FormHelperText, FormLabel } from "@mui/material";
 import { FC, useState } from "react";
-import * as React from "react";
+import React from "react";
 import { blue } from '@mui/material/colors';
 
 const RegisterUserForm: FC = () => {
