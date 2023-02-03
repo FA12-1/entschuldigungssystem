@@ -26,13 +26,13 @@ const EditUserForm: FC = () => {
                 <Grid item xs={12} sx={{backgroundColor: color, color:"white"}}>
                     <h1>Benutzer bearbeiten</h1>
                 </Grid>
-                <Grid item xs={12}>
+                <Grid item xs={12} sx={{paddingRight: "16px"}}>
                     <TextField fullWidth label="Vorname"/>
                 </Grid>
-                <Grid item xs={12}>
+                <Grid item xs={12} sx={{paddingRight: "16px"}}>
                     <TextField fullWidth label="Nachname"/>
                 </Grid>
-                <Grid item xs={12}>
+                <Grid item xs={12} sx={{paddingRight: "16px"}}>
                     <TextField
                         fullWidth
                         type="email"

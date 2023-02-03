@@ -18,10 +18,10 @@ const RegisterClassForm: FC = () => {
                 <Grid item xs={12} sx={{backgroundColor: color, color:"white"}}>
                     <h1>Klasse anlegen</h1>
                 </Grid>
-                <Grid item xs={12}>
+                <Grid item xs={12} sx={{paddingRight: "16px"}}>
                     <TextField fullWidth label="Name" />
                 </Grid>
-                <Grid item xs={12} direction="row">
+                <Grid item xs={12} sx={{paddingRight: "16px"}}>
                     <FormLabel 
                         component="legend" 
                         sx={{margin: "2% 0"}}>

@@ -18,7 +18,7 @@ const EditClassForm: FC = () => {
                 <Grid item xs={12} sx={{backgroundColor: color, color:"white"}}>
                     <h1>Klasse bearbeiten</h1>
                 </Grid>
-                <Grid item xs={12}>
+                <Grid item xs={12} sx={{padding: "16px"}}>
                     <TextField fullWidth label="Name" />
                 </Grid>
                 <Grid item xs={12}>
