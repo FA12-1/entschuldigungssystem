@@ -41,32 +41,6 @@ const EditUserForm: FC = () => {
                     />
                 </Grid>
                 <Grid item xs={12}>
-                    <FormControl
-                        required
-                        error={checkboxError}
-                        component="fieldset"
-                        sx={{ m: 3 }}
-                        variant="standard"
-                    >
-                        <FormLabel component="legend">Rolle</FormLabel>
-                        <FormGroup>
-                        <FormControlLabel
-                            control={
-                                <Checkbox checked={lehrer} onChange={handleChange} name="lehrer" />
-                            }
-                            label="Lehrer"
-                        />
-                        <FormControlLabel
-                            control={
-                                <Checkbox checked={admin} onChange={handleChange} name="admin" />
-                            }
-                            label="Admin"
-                        />
-                        </FormGroup>
-                        <FormHelperText>Bitte Rolle auswählen</FormHelperText>
-                    </FormControl>
-                </Grid>
-                <Grid item xs={12}>
                     <Button 
                         type="submit" 
                         variant="contained" 
