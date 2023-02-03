@@ -8,7 +8,7 @@ const EditUserForm: FC = () => {
 
     return (
         <>
-            <Grid container spacing={2}>
+            <Grid container maxWidth="sm" spacing={2} sx={{marginX: "auto"}}>
                 <Grid item xs={12} sx={{backgroundColor: color, color:"white"}}>
                     <h1>Benutzer bearbeiten</h1>
                 </Grid>
@@ -27,9 +27,9 @@ const EditUserForm: FC = () => {
                     />
                 </Grid>
                 <Grid item xs={12}>
-                    <Button 
-                        type="submit" 
-                        variant="contained" 
+                    <Button
+                        type="submit"
+                        variant="contained"
                         sx={{backgroundColor: color}}>
                             Änderungen speichern
                     </Button>
