@@ -5,20 +5,6 @@ import { blue } from '@mui/material/colors';
 
 const EditUserForm: FC = () => {
     const color = blue[700];
-    const [state, setState] = React.useState({
-        lehrer: true,
-        admin: false,
-      });
-    
-      const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setState({
-          ...state,
-          [event.target.name]: event.target.checked,
-        });
-      };
-    
-      const { lehrer, admin } = state;
-      const checkboxError = [lehrer, admin].filter((v) => v).length !== 1;
 
     return (
         <>
