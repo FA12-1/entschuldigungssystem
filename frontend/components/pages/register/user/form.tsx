@@ -9,20 +9,20 @@ const RegisterUserForm: FC = () => {
         lehrer: true,
         admin: false,
     });
-    
+
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setState({
         ...state,
         [event.target.name]: event.target.checked,
     });
     };
-    
+
     const { lehrer, admin } = state;
     const checkboxError = [lehrer, admin].filter((v) => v).length !== 1;
 
     return (
         <>
-            <Grid container spacing={2}>
+            <Grid container maxWidth="sm" spacing={2} sx={{marginX: "auto"}}>
                 <Grid item xs={12} sx={{backgroundColor: color, color:"white"}}>
                     <h1>Benutzer anlegen</h1>
                 </Grid>
@@ -67,9 +67,9 @@ const RegisterUserForm: FC = () => {
                     </FormControl>
                 </Grid>
                 <Grid item xs={12}>
-                    <Button 
-                        type="submit" 
-                        variant="contained" 
+                    <Button
+                        type="submit"
+                        variant="contained"
                         sx={{backgroundColor: color}}>
                             Anlegen
                     </Button>

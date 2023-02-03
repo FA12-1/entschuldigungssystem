@@ -14,7 +14,7 @@ const EditClassForm: FC = () => {
 
     return (
         <>
-            <Grid container spacing={2}>
+            <Grid container maxWidth="sm" spacing={2} sx={{marginX: "auto"}}>
                 <Grid item xs={12} sx={{backgroundColor: color, color:"white"}}>
                     <h1>Klasse bearbeiten</h1>
                 </Grid>
@@ -22,8 +22,8 @@ const EditClassForm: FC = () => {
                     <TextField fullWidth label="Name" />
                 </Grid>
                 <Grid item xs={12}>
-                    <FormLabel 
-                        component="legend" 
+                    <FormLabel
+                        component="legend"
                         sx={{margin: "2% 0"}}>
                             Klassenlehrer zuweisen
                     </FormLabel>
@@ -33,9 +33,9 @@ const EditClassForm: FC = () => {
                     </select>
                 </Grid>
                 <Grid item xs={12}>
-                    <Button 
-                    type="submit" 
-                    variant="contained" 
+                    <Button
+                    type="submit"
+                    variant="contained"
                     sx={{backgroundColor: color}}>
                         Änderungen speichern
                     </Button>

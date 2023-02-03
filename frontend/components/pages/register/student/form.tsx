@@ -14,7 +14,7 @@ const RegisterStudentForm: FC = () => {
 
     return (
         <>
-            <Grid container spacing={2}>
+            <Grid container maxWidth="sm" spacing={2} sx={{marginX: "auto"}}>
                 <Grid item xs={12} sx={{backgroundColor: color, color:"white"}}>
                     <h1>Schüler anlegen</h1>
                 </Grid>
@@ -33,16 +33,16 @@ const RegisterStudentForm: FC = () => {
                     />
                 </Grid>
                 <Grid item xs={12} sx={{paddingRight: "16px"}}>
-                    <TextField 
+                    <TextField
                         fullWidth
-                        InputLabelProps={{ shrink: true }} 
+                        InputLabelProps={{ shrink: true }}
                         type="date"
                         label="Geburtsdatum"
                     />
                 </Grid>
                 <Grid item xs={12}>
-                    <FormLabel 
-                        component="legend" 
+                    <FormLabel
+                        component="legend"
                         sx={{margin: "2% 0"}}>
                             Klasse zuweisen
                     </FormLabel>
@@ -52,9 +52,9 @@ const RegisterStudentForm: FC = () => {
                     </select>
                 </Grid>
                 <Grid item xs={12}>
-                        <Button 
-                            type="submit" 
-                            variant="contained" 
+                        <Button
+                            type="submit"
+                            variant="contained"
                             sx={{backgroundColor: color}}>
                                 Anlegen
                         </Button>
