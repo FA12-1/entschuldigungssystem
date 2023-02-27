@@ -1,7 +1,7 @@
 import { FC, ReactNode } from "react";
 
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
-import { Box, Drawer, IconButton } from "@mui/material";
+import { Box, Container, Drawer, IconButton } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import useLocalStorage from "../../../hooks/use-local-storage";
 import AppBar from "./components/app-bar";
@@ -43,7 +43,7 @@ const SideMenu: FC<SideMenuProps> = ({ children }) => {
                 </Drawer>
                 <Main>
                     <DrawerHeader />
-                    {children}
+                    <Container sx={{ maxWidth: "sm" }}>{children}</Container>
                 </Main>
             </Box>
         </SideMenuContextProvider>
