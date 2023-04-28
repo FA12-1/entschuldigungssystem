@@ -1,42 +1,49 @@
-import { Grid, TextField, Button, FormLabel } from "@mui/material";
+import {
+    Grid,
+    TextField,
+    Button,
+    Typography,
+    Select,
+    MenuItem,
+    Divider,
+    InputLabel,
+} from "@mui/material";
 import { FC, useState } from "react";
-import { blue } from '@mui/material/colors';
+import { blue } from "@mui/material/colors";
 
 const EditClassForm: FC = () => {
-    const color = blue[700];
-    const [selectedOption, setSelectedOption] = useState<String>();
-
-  // This function is triggered when the select changes
-  const selectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    const value = event.target.value;
-    setSelectedOption(value);
-  };
+    const [selectedOption, setSelectedOption] = useState<string>("null");
 
     return (
         <>
-            <Grid container maxWidth="sm" spacing={2} sx={{marginX: "auto"}}>
-                <Grid item xs={12} sx={{backgroundColor: color, color:"white"}}>
-                    <h1>Klasse bearbeiten</h1>
-                </Grid>
-                <Grid item xs={12} sx={{padding: "16px"}}>
-                    <TextField fullWidth label="Name" />
+            <Grid container spacing={1}>
+                <Grid item xs={12}>
+                    <Typography variant="h4">
+                        Klasse bearbeiten
+                    </Typography>
                 </Grid>
                 <Grid item xs={12}>
-                    <FormLabel
-                        component="legend"
-                        sx={{margin: "2% 0"}}>
+                    <TextField fullWidth label="Name"/>
+                </Grid>
+                <Grid item xs={12}>
+                    <InputLabel sx={{ py: 1}}>
                             Klassenlehrer zuweisen
-                    </FormLabel>
-                    <select onChange={selectChange} id="Klasse">
-                        <option selected disabled>Lehrer zuweisen</option>
-                        <option>Test</option>
-                    </select>
+                    </InputLabel>
+                    <Select 
+                        value={selectedOption} 
+                        onChange={(e) => setSelectedOption(e.target.value)}
+                    >
+                        <MenuItem value={"null"}>Auswählen</MenuItem>
+                        <MenuItem value={"Kreutzer"}>M. Kreutzer</MenuItem>
+                    </Select>
                 </Grid>
                 <Grid item xs={12}>
+                    <Divider sx={{ my: 2 }}/>
                     <Button
-                    type="submit"
-                    variant="contained"
-                    sx={{backgroundColor: color}}>
+                        type="submit"
+                        variant="contained"
+                        sx={{ backgroundColor: blue[700] }}
+                    >
                         Änderungen speichern
                     </Button>
                 </Grid>

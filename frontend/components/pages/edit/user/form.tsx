@@ -1,24 +1,29 @@
-import { Grid, TextField, Button, Checkbox, FormGroup, FormControl, FormControlLabel, FormHelperText, FormLabel } from "@mui/material";
-import { FC, useState } from "react";
-import * as React from "react";
-import { blue } from '@mui/material/colors';
+import {
+    Grid,
+    TextField,
+    Button,
+    Typography,
+    Divider,
+} from "@mui/material";import
+{ FC } from "react";
+import { blue } from "@mui/material/colors";
 
 const EditUserForm: FC = () => {
-    const color = blue[700];
-
     return (
         <>
-            <Grid container maxWidth="sm" spacing={2} sx={{marginX: "auto"}}>
-                <Grid item xs={12} sx={{backgroundColor: color, color:"white"}}>
-                    <h1>Benutzer bearbeiten</h1>
+            <Grid container spacing={1}>
+                <Grid item xs={12}>
+                    <Typography variant="h4">
+                        Benutzer bearbeiten
+                    </Typography>
                 </Grid>
-                <Grid item xs={12} sx={{paddingRight: "16px"}}>
+                <Grid item xs={12}>
                     <TextField fullWidth label="Vorname"/>
                 </Grid>
-                <Grid item xs={12} sx={{paddingRight: "16px"}}>
+                <Grid item xs={12}>
                     <TextField fullWidth label="Nachname"/>
                 </Grid>
-                <Grid item xs={12} sx={{paddingRight: "16px"}}>
+                <Grid item xs={12}>
                     <TextField
                         fullWidth
                         type="email"
@@ -27,11 +32,13 @@ const EditUserForm: FC = () => {
                     />
                 </Grid>
                 <Grid item xs={12}>
+                    <Divider sx={{ my: 2 }}/>
                     <Button
                         type="submit"
                         variant="contained"
-                        sx={{backgroundColor: color}}>
-                            Änderungen speichern
+                        sx={{backgroundColor: blue[700]}}
+                    >
+                        Änderungen speichern
                     </Button>
                 </Grid>
             </Grid>

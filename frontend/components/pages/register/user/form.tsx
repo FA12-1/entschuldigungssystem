@@ -1,76 +1,78 @@
-import { Grid, TextField, Button, Checkbox, FormGroup, FormControl, FormControlLabel, FormHelperText, FormLabel } from "@mui/material";
-import { FC, useState } from "react";
+import {
+    Grid,
+    TextField,
+    FormControl,
+    FormControlLabel,
+    FormLabel,
+    RadioGroup,
+    FormHelperText,
+    Radio,
+    Button,
+    Typography,
+    Divider,
+} from "@mui/material";import
+{ FC } from "react";
 import React from "react";
-import { blue } from '@mui/material/colors';
+import { blue } from "@mui/material/colors";
 
 const RegisterUserForm: FC = () => {
-    const color = blue[700];
-    const [state, setState] = React.useState({
-        lehrer: true,
-        admin: false,
-    });
+    const [value, setValue] = React.useState('admin');
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setState({
-        ...state,
-        [event.target.name]: event.target.checked,
-    });
+        setValue((event.target as HTMLInputElement).value);
     };
-
-    const { lehrer, admin } = state;
-    const checkboxError = [lehrer, admin].filter((v) => v).length !== 1;
 
     return (
         <>
-            <Grid container maxWidth="sm" spacing={2} sx={{marginX: "auto"}}>
-                <Grid item xs={12} sx={{backgroundColor: color, color:"white"}}>
-                    <h1>Benutzer anlegen</h1>
-                </Grid>
-                <Grid item xs={12} sx={{paddingRight: "16px"}}>
-                    <TextField fullWidth label="Vorname"/>
-                </Grid>
-                <Grid item xs={12} sx={{paddingRight: "16px"}}>
-                    <TextField fullWidth label="Nachname"/>
-                </Grid>
-                <Grid item xs={12} sx={{paddingRight: "16px"}}>
-                <TextField
-                    fullWidth
-                    type="email"
-                    placeholder="max@mustermann.de"
-                    label="E-Mail"
-                />
+            <Grid container spacing={1}>
+                <Grid item xs={12}>
+                    <Typography variant="h4">
+                        Benutzer anlegen
+                    </Typography>
                 </Grid>
                 <Grid item xs={12}>
-                    <FormControl
-                        required
-                        error={checkboxError}
-                        component="fieldset"
-                        sx={{ m: 3 }}
-                        variant="standard"
-                    >
+                    <TextField fullWidth label="Vorname"/>
+                </Grid>
+                <Grid item xs={12}>
+                    <TextField fullWidth label="Nachname"/>
+                </Grid>
+                <Grid item xs={12}>
+                    <TextField
+                        fullWidth
+                        type="email"
+                        placeholder="max@mustermann.de"
+                        label="E-Mail"
+                    />
+                </Grid>
+                <Grid item xs={12}>
+                    <FormControl>
                         <FormLabel component="legend">Rolle</FormLabel>
-                        <FormGroup>
-                        <FormControlLabel
-                            control={
-                                <Checkbox checked={lehrer} onChange={handleChange} name="lehrer" />
-                            }
-                            label="Lehrer"
-                        />
-                        <FormControlLabel
-                            control={
-                                <Checkbox checked={admin} onChange={handleChange} name="admin" />
-                            }
-                            label="Admin"
-                        />
-                        </FormGroup>
-                        <FormHelperText>Bitte Rolle auswählen</FormHelperText>
+                        <RadioGroup
+                            aria-labelledby="demo-controlled-radio-buttons-group"
+                            name="controlled-radio-buttons-group"
+                            value={value}
+                            onChange={handleChange}
+                        >
+                            <FormControlLabel 
+                                value="admin" 
+                                control={<Radio />} 
+                                label="Admin" 
+                            />
+                            <FormControlLabel 
+                                value="lehrer" 
+                                control={<Radio />} 
+                                label="Lehrer" 
+                            />
+                            <FormHelperText>Bitte Rolle auswählen</FormHelperText>
+                        </RadioGroup>
                     </FormControl>
                 </Grid>
                 <Grid item xs={12}>
+                    <Divider sx={{ my: 2 }}/>
                     <Button
                         type="submit"
                         variant="contained"
-                        sx={{backgroundColor: color}}>
+                        sx={{backgroundColor: blue[700]}}>
                             Anlegen
                     </Button>
                 </Grid>
